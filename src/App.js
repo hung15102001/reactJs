@@ -26,7 +26,7 @@ function App() {
     <Container>
       {winners ? <h2>{winners} is win</h2> : "Next Player: " + (xPlay ? "X" : "O")}
       <Board>
-          {board.map((item, index)=><Square handlePlay={()=> handlePlay(index)} value={item} /> )}
+          {board.map((item, index)=><Square key = {index} handlePlay={()=> handlePlay(index)} value={item} /> )}
       </Board>
       {winners ? <Button className="" onClick={refreshPage}>Reset</Button> : null}
     </Container>
