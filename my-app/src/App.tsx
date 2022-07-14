@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-
+import './App.css';
+import FooterCli from './component/Client/footerCli';
+import HeaderCli from './component/Client/headerCli';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      Hungns
+    <div className=''>
+    <HeaderCli />
+
+    <FooterCli />
     </div>
   )
 }
+
 
 export default App
