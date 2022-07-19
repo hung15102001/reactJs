@@ -18,8 +18,11 @@ const ListPro = (props: Props) => {
     },[])
 
     const onRemove = (id:any) =>{
-        const data =  remove(id);
-        setPro(pro.filter(data =>  data.id !== id ))
+        const confirm = window.confirm();
+        if(confirm){
+            const data =  remove(id);
+            setPro(pro.filter(data =>  data.id !== id ))
+        }
     }
 
   return (

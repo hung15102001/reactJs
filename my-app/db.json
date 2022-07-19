@@ -1,17 +1,6 @@
 {
   "products": [
     {
-      "id": 2,
-      "name": "SP2",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "cateID": 1,
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
       "id": 3,
       "name": "SP3",
       "price": 3000,
@@ -21,7 +10,8 @@
       "cateID": 1,
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
-    },   {
+    },
+    {
       "id": 11,
       "name": "SP2",
       "price": 3000,
