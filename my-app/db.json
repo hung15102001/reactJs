@@ -1,0 +1,132 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 3,
+      "name": "SP3",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },   {
+      "id": 11,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 12,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 10,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 9,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 8,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 7,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 6,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 5,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 4,
+      "name": "SP2",
+      "price": 3000,
+      "description": "ok",
+      "image": "1.jpg",
+      "quantity": 100,
+      "cateID": 1,
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "some comment",
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    }
+  ]
+}
