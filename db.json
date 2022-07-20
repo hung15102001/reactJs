@@ -24,7 +24,7 @@
     },
     {
       "id": 12,
-      "name": "SP2",
+      "name": "SP5",
       "price": 3000,
       "description": "ok",
       "image": "1.jpg",
@@ -35,7 +35,7 @@
     },
     {
       "id": 10,
-      "name": "SP2",
+      "name": "SP6",
       "price": 3000,
       "description": "ok",
       "image": "1.jpg",
@@ -46,7 +46,7 @@
     },
     {
       "id": 9,
-      "name": "SP2",
+      "name": "SP4",
       "price": 3000,
       "description": "ok",
       "image": "1.jpg",
@@ -57,7 +57,7 @@
     },
     {
       "id": 8,
-      "name": "SP2",
+      "name": "SP7",
       "price": 3000,
       "description": "ok",
       "image": "1.jpg",
@@ -78,43 +78,31 @@
       "updated_at": "15/10/2001"
     },
     {
-      "id": 6,
-      "name": "SP2",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "cateID": 1,
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
-      "id": 5,
-      "name": "SP2",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "cateID": 1,
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
-      "id": 4,
-      "name": "SP2",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "cateID": 1,
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
+      "name": "eqweqweqw",
+      "originalPrice": 13,
+      "saleOffPrice": 231,
+      "categories": 2,
+      "quantity": "13123123",
+      "description": "ewqeqweqwe",
+      "id": 13
     }
   ],
   "categories": [
     {
       "id": 1,
-      "name": "some comment",
+      "name": "Điện thoại",
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "created_at": "15/10/2001",
+      "updated_at": "15/10/2001"
+    },
+    {
+      "id": 3,
+      "name": "PC",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     }
