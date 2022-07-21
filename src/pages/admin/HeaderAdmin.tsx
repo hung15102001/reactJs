@@ -24,7 +24,7 @@ const HeaderAdmin = () => {
                     </div>
                 </div>
                 <div style={{margin:"auto 0"}}>
-                    <p style={{float:"right", color:"white"}}> Xin chao long</p>
+                    <p style={{float:"right", color:"white"}}> Xin chao heeeee</p>
                 </div>
                {/* <MenuHeader/> */}
 

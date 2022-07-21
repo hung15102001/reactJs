@@ -10,19 +10,20 @@ import { CateType } from '../../../type/Category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { listCate } from '../../../api/categoriApi';
 import { ProductType } from '../../../type/Products';
+import { useForm } from 'rc-field-form';
 // import UploadTest from "../../../components/Product/UploadTest";
 
 const { TextArea } = Input
 const { Option } = Select;
 
-type FormUp = {
-    name: string
-    price: number
-    quantity: number
-    image: string
-    description: string
-    category: string
-  }
+// type FormUp = {
+//     name: string
+//     price: number
+//     quantity: number
+//     image: string
+//     description: string
+//     category: string
+//   }
 const UpdateProduct = () => {
 	const [cate, setCate] = useState<CateType[]>([])
     const [pro, setPro] = useState<ProductType>()
@@ -39,10 +40,10 @@ const UpdateProduct = () => {
 		}
 	};
     const {id} = useParams();
+	const [dataform] = Form.useForm();
 	useEffect(()=>{
 		const getCate = async () =>{
 			const {data} = await listCate();
-			console.log(data);
 			
 			setCate(data);
 		}
@@ -52,7 +53,7 @@ const UpdateProduct = () => {
             const {data} = await view(id);
             console.log(data);
             
-            setPro(data)
+			dataform.setFieldsValue(data);
         }
         getView();
         console.log(pro);
@@ -84,6 +85,7 @@ const UpdateProduct = () => {
 						onFinishFailed={onFinishFailed}
 						autoComplete="on"
 						labelCol={{ span: 24 }}
+						form = {dataform}
 					>
 						<Form.Item
 							name="name"

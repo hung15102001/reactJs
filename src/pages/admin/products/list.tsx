@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 import { Typography, Button, Table, Space, Modal } from 'antd';
 
-import { SearchOutlined, PlusOutlined } from '@ant-design/icons';
+import { SearchOutlined, PlusOutlined,EyeOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { listProduct, remove } from '../../../api/products';
@@ -18,7 +18,7 @@ interface DataType {
     name: string;
     price: number;
     description: string;
-    image: string;
+    img: string;
     quantity:number;
     cateID:number;
     created_at:string;
@@ -54,9 +54,10 @@ const ListProduct = () => {
         },
         {
             title: 'Image',
-            dataIndex: 'image',     
-            key: 'image',
-            render: text => <a>{text}</a>,
+            dataIndex: 'img',     
+            key: 'img',
+            render: text => <img src={text} alt="" width={150} />,
+            
         },
         {
             title: 'Category',
@@ -94,6 +95,13 @@ const ListProduct = () => {
                     }}
                     style={{ color: "red", marginLeft: 12 }}
                   />
+
+                <EyeOutlined 
+                  onClick={()=>{
+                    onHidden(record.id);
+                  }}
+                  style={{ marginLeft: 12 }}
+                />
                 </>
               );
             },
@@ -108,11 +116,14 @@ const ListProduct = () => {
           onOk:async () => {
             await  remove(id);
             setDataTable(dataTable.filter(data =>  data.id !== id ))
+            window.location.reload();
         }
         });
     
       };
+const onHidden = (id) =>{
 
+}
       const onEditStudent = (record) => { 
        return <Link
                 to={`/admin/products/${record.id}/edit`}

@@ -16,13 +16,21 @@ const { Option } = Select;
 
 const AddProduct = () => {
 	const [cate, setCate] = useState<CateType[]>([])
-  const navigate = useNavigate()
+	const [img, setImage] = useState();
+
+	const onhandleImage = (image:any) =>{
+		console.log(image.image);
+		console.log('312');
+		
+		setImage(image.image)
+	}
+//   const navigate = useNavigate()
 	const onFinish = async (values: any) => {
 		console.log('Success:', values);
 		try {
-			const data = await add(values)
+			const data = await add({...values,img})
 			message.success("Tạo mới thành công")
-			navigate(-1)
+			// navigate(-1)
 		} catch (err) {
 			message.error("Có lỗi xảy ra")
 		}
@@ -43,14 +51,14 @@ const AddProduct = () => {
 	};
 	return (
 		<>
-			<Breadcrumb>
+			<Breadcrumb >
 				<Typography.Title level={2} style={{ margin: 0 }}>
 					Thêm mới
 				</Typography.Title>
 			</Breadcrumb>
 			<Row gutter={16}>
 				<Col span={10}>
-					<UploadImage />
+					<UploadImage onAdd={onhandleImage}/>
 					{/* <UploadTest/> */}
 				</Col>
 				<Col span={14}>

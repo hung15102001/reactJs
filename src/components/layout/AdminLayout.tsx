@@ -1,20 +1,17 @@
 import React from 'react'
-import { PhoneOutlined, LaptopOutlined, TabletFilled, AudioOutlined, SettingOutlined } from '@ant-design/icons';
+import { PhoneOutlined, LaptopOutlined, TabletFilled, AudioOutlined, PicRightOutlined,AndroidOutlined} from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu } from 'antd';
 
 import styled from 'styled-components';
-import LogoImage from '../../assets/images/anhhtus-logo 2.png'
+import LogoImage from '../../assets/images/logo.png'
 import { Outlet, Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
 
 const item3: MenuProps['items'] = [
-  { key: "cellphone", icon: <PhoneOutlined />, label: <Link to="/admin">Điện thoại</Link> },
-  { key: "laptop", icon: <LaptopOutlined />, label: "Laptop" },
-  { key: "tablet", icon: <TabletFilled />, label: "Máy tính bảng" },
-  { key: "audio", icon: <AudioOutlined />, label: "Âm thanh" },
+  { key: "cellphone", icon: <AndroidOutlined />, label: <Link to="/admin">Điện thoại</Link> },
   {
-    key: "categories", icon: <SettingOutlined />,
+    key: "categories", icon: <PicRightOutlined />,
     label: <Link to="/admin/categories">Categories</Link>
   },
 ]
