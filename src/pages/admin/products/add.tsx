@@ -104,13 +104,13 @@ const AddProduct = () => {
 							<Col span={12}>
 								<Form.Item
 									label="Phân loại"
-									name="categories"
+									name="category"
 									rules={[{ required: true }]}
 								>
 									<Select style={{ width: '100%' }} size="large">
 										{cate?.map(item =>{
 											return (
-												<Option value={item.id}>{item.name}</Option>
+												<Option value={item.name}>{item.name}</Option>
 											)
 										})}
 										

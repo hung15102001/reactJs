@@ -5,12 +5,10 @@ import { Typography, Button, Table, Space, Modal } from 'antd';
 import { SearchOutlined, PlusOutlined,EyeOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { listProduct, remove } from '../../../api/products';
+import { cateForPro, listProduct, remove } from '../../../api/products';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import { ProductType } from '../../../type/Products';
 import { Link, useNavigate } from 'react-router-dom';
-import { CateType } from '../../../type/Category';
-import { listCate } from '../../../api/categoriApi';
 // import { useQuery } from 'react-query'
 const { Paragraph } = Typography
 
@@ -28,19 +26,10 @@ interface DataType {
 
 }
 
-const ListProduct = () => {
+const CateForPro = () => {
     const [dataTable,setDataTable] = useState<ProductType[]>([])
-    const [cate, setCate] = useState<CateType[]>([])
 
-    useEffect(()=>{
-      const getCate = async () => {
-        const {data} = await listCate()
-        console.log(data);
-        
-        setCate(data)
-      }
-      getCate()
-    },[])
+    
     const columns: ColumnsType<DataType> = [
         {
             title: 'Name',
@@ -73,15 +62,8 @@ const ListProduct = () => {
         },
         {
             title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
-            filters: cate.map((item: any) => { return { text: item.name, value: item.name } }),
-            onFilter: (value, record: any) => {
-                console.log(record.categories);
-                console.log(value);
-
-                return record.category == value
-            }
+            dataIndex: 'cateID',
+            key: 'cateID',
     
         },
         {
@@ -143,15 +125,17 @@ const ListProduct = () => {
 const onHidden = (id) =>{
 
 }
-    const navigate = useNavigate()
-      const onEditStudent = (record) => { 
-        navigate(`/admin/product/${record.id}/edit`)
-      };
+const navigate = useNavigate()
+const onEditStudent = (record) => { 
+  navigate(`/admin/product/${record.id}/edit`)
+};
+
      
 
     const queryClient = new QueryClient();
 
-    const {isLoading, data, error} = useQuery<any>(['Product'], listProduct)
+    const {isLoading, data, error} = useQuery<any>(['Category'], cateForPro)
+
     console.log(data);
     
     return (
@@ -159,14 +143,11 @@ const onHidden = (id) =>{
         
             <Breadcrumb>
                 <Typography.Title level={2} style={{ margin: 0 }}>
-                    Điện thoại
+                    
                 </Typography.Title>
-                <div>
-                  <button><Link to={'/admin/product/category/3'}>demo</Link></button>
-                </div>
-                <Link to="/admin/product/add">
+                {/* <Link to="/admin/product/add">
                     <Button type="dashed" shape="circle" icon={<PlusOutlined />} />
-                </Link>
+                </Link> */}
             </Breadcrumb>
             <Table loading={isLoading} columns={columns} dataSource={data?.data} />
            
@@ -179,4 +160,4 @@ const Breadcrumb = styled.div`
     justify-content: space-between;
     margin-top: 20px;
 `
-export default ListProduct
+export default CateForPro

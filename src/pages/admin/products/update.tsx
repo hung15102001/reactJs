@@ -4,7 +4,7 @@ import { Typography, Col, Row, Button, Checkbox, Form, Input, InputNumber, Selec
 // import UploadImage from "../../../components/Product/UploadImage";
 // import { createProduct } from "../../../api/product";
 
-import { add, view } from '../../../api/products';
+import { add, update, view } from '../../../api/products';
 import UploadImage from '../../../components/product/UploadImage';
 import { CateType } from '../../../type/Category';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -25,41 +25,63 @@ const { Option } = Select;
 //     category: string
 //   }
 const UpdateProduct = () => {
-	const [cate, setCate] = useState<CateType[]>([])
-    const [pro, setPro] = useState<ProductType>()
-   
-  const navigate = useNavigate()
+	const [image, setUploadedImage] = React.useState('')
+  const [cate, setCategory] = useState([])
+  const [pro, setPro] = useState<ProductType>()
+	const navigate = useNavigate()
+
+  const { id } = useParams();
+  const [form] = Form.useForm();
+
+	const onHandleAdd = (image: any) => {
+		// console.log(image);
+		setUploadedImage(image.img)
+
+	}
+  
+  useEffect((() => {
+    // const imgPreview = document.getElementById("imgPreview");
+    // const imgPost = document.getElementById("file-upload");
+
+    if (id) {
+      const getCate = async (id: any) => {
+          const { data } = await view(id);
+          console.log(data.image);
+		  form.setFieldsValue(data);
+        
+      }
+      getCate(id);
+  }
+  }),[])
+  useEffect(() => {
+    const listcategory = async () => {
+        const { data } = await listCate();
+        console.log(data);
+
+        setCategory(data)
+    }
+    listcategory();
+}, [])
 	const onFinish = async (values: any) => {
 		console.log('Success:', values);
-		try {   
-			const data = await add(values)
-			message.success("Tạo mới thành công")
-			navigate(-1)
+		console.log(image);
+
+		try {
+		
+				// message.error("Bạn chưa chọn ảnh")
+			
+				const data = await update(values)
+				// console.log(data);
+				message.success("Cập nhật thành công");
+       			 navigate("/admin")
+			
+
+			// navigate(-1)
 		} catch (err) {
 			message.error("Có lỗi xảy ra")
 		}
 	};
-    const {id} = useParams();
-	const [dataform] = Form.useForm();
-	useEffect(()=>{
-		const getCate = async () =>{
-			const {data} = await listCate();
-			
-			setCate(data);
-		}
-		getCate();
-
-        const getView = async () => {
-            const {data} = await view(id);
-            console.log(data);
-            
-			dataform.setFieldsValue(data);
-        }
-        getView();
-        console.log(pro);
-        
-	},[])
-    
+	// console.log(uploadedImage);
 
 	const onFinishFailed = (errorInfo: any) => {
 		console.log('Failed:', errorInfo);
@@ -73,7 +95,7 @@ const UpdateProduct = () => {
 			</Breadcrumb>
 			<Row gutter={16}>
 				<Col span={10}>
-					<UploadImage />
+					<UploadImage onAdd={onHandleAdd}/>
 					{/* <UploadTest/> */}
 				</Col>
 				<Col span={14}>
@@ -85,7 +107,7 @@ const UpdateProduct = () => {
 						onFinishFailed={onFinishFailed}
 						autoComplete="on"
 						labelCol={{ span: 24 }}
-						form = {dataform}
+						form = {form}
 					>
 						<Form.Item
 							name="name"
@@ -93,7 +115,7 @@ const UpdateProduct = () => {
 							label="Tên sản phẩm"
 							rules={[{ required: true, message: 'Tên sản phẩm không được trống' }]}
 						>
-							<Input size="large" value={pro?.name}/>
+							<Input size="large" />
 						</Form.Item>
 
 						<Row gutter={16}>
@@ -104,7 +126,7 @@ const UpdateProduct = () => {
 									labelCol={{ span: 24 }}
 									rules={[{ required: true, message: 'Gía sản phẩm' }]}
 								>
-									<InputNumber style={{ width: '100%' }} size="large" value={pro?.price} />
+									<InputNumber style={{ width: '100%' }} size="large"  />
 								</Form.Item>
 							</Col>
 							{/* <Col span={12}>
@@ -117,7 +139,7 @@ const UpdateProduct = () => {
 									<InputNumber style={{ width: '100%' }} size="large" />
 								</Form.Item>
 							</Col> */}
-							<Col span={12}>
+							{/* <Col span={12}>
 								<Form.Item
 									label="Phân loại"
 									name="categories"
@@ -126,13 +148,13 @@ const UpdateProduct = () => {
 									<Select style={{ width: '100%' }} size="large">
 										{cate?.map(item =>{
 											return (
-												<Option value={item.id}>{item.name}</Option>
+												<Option value={item.name}>{item.name}</Option>
 											)
 										})}
 										
 									</Select>
 								</Form.Item>
-							</Col>
+							</Col> */}
 						</Row>
 
 						<Form.Item
@@ -174,4 +196,5 @@ const Breadcrumb = styled.div`
 const Label = styled.div`
 	font-size: 13px;
 `
+
 export default UpdateProduct

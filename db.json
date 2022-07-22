@@ -1,5 +1,5 @@
 {
-  "products": [
+  "product": [
     {
       "id": 3,
       "name": "SP3",
@@ -7,7 +7,7 @@
       "description": "ok",
       "image": "1.jpg",
       "quantity": 100,
-      "cateID": 1,
+      "category": "Laptop",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
@@ -18,7 +18,7 @@
       "description": "ok",
       "image": "1.jpg",
       "quantity": 100,
-      "cateID": 1,
+      "category": "Laptop",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
@@ -29,7 +29,7 @@
       "description": "ok",
       "image": "1.jpg",
       "quantity": 100,
-      "cateID": 1,
+      "category": "Laptop",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
@@ -40,7 +40,7 @@
       "description": "ok",
       "image": "1.jpg",
       "quantity": 100,
-      "cateID": 1,
+      "category": "PC",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
@@ -51,7 +51,7 @@
       "description": "ok",
       "image": "1.jpg",
       "quantity": 100,
-      "cateID": 1,
+      "category": "PC",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
@@ -62,14 +62,14 @@
       "description": "ok",
       "image": "1.jpg",
       "quantity": 100,
-      "cateID": 1,
+      "category": "PC",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
     {
       "name": "demo",
       "price": 123123,
-      "categories": 1,
+      "category": "Laptop",
       "quantity": "312",
       "description": "adasdasda",
       "id": 13
@@ -77,7 +77,7 @@
     {
       "name": "undefined",
       "price": 31,
-      "categories": 2,
+      "category": "Laptop",
       "quantity": "321",
       "description": "ewqewqe",
       "id": 14
@@ -85,7 +85,7 @@
     {
       "name": "dsadasdasd",
       "price": 312321,
-      "categories": 1,
+      "category": "Laptop",
       "quantity": "ewqeqwe",
       "description": "đâsdsad",
       "id": 15
@@ -93,7 +93,7 @@
     {
       "name": "hung15102001",
       "price": 3123213,
-      "categories": 2,
+      "category": "Laptop",
       "quantity": "223",
       "description": "qưeqwe",
       "id": 16
@@ -101,7 +101,7 @@
     {
       "name": "hung15102001",
       "price": 3123,
-      "categories": 1,
+      "category": "Điện thoại",
       "quantity": "123132",
       "description": "eqeqweq",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658368220/anhhtus/ri82bbsfk5tezusobjj2.png",
@@ -110,14 +110,23 @@
     {
       "name": "hung15102001",
       "price": 321312,
-      "categories": 1,
+      "category": "Điện thoại",
       "quantity": "1323",
       "description": "ewqeqw",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658368774/anhhtus/aezehkbpvcr8mzscrrbd.png",
       "id": 18
+    },
+    {
+      "name": "demo1234",
+      "price": 321,
+      "category": "Laptop",
+      "quantity": "3123",
+      "description": "EQWEQWQEQWEQ",
+      "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658500414/anhhtus/azvodmykcpgaa0saies9.png",
+      "id": 19
     }
   ],
-  "categories": [
+  "category": [
     {
       "id": 1,
       "name": "Điện thoại",
