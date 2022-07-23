@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 import { Typography, Col, Row, Button, Checkbox, Form, Input, InputNumber, Select, message } from 'antd'
-// import UploadImage from "../../../components/Product/UploadImage";
-// import { createProduct } from "../../../api/product";
 
 import { add, update, view } from '../../../api/products';
 import UploadImage from '../../../components/product/UploadImage';
@@ -11,19 +9,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { listCate } from '../../../api/categoriApi';
 import { ProductType } from '../../../type/Products';
 import { useForm } from 'rc-field-form';
-// import UploadTest from "../../../components/Product/UploadTest";
 
 const { TextArea } = Input
 const { Option } = Select;
 
-// type FormUp = {
-//     name: string
-//     price: number
-//     quantity: number
-//     image: string
-//     description: string
-//     category: string
-//   }
 const UpdateProduct = () => {
 	const [image, setUploadedImage] = React.useState('')
   const [cate, setCategory] = useState([])
@@ -34,14 +23,11 @@ const UpdateProduct = () => {
   const [form] = Form.useForm();
 
 	const onHandleAdd = (image: any) => {
-		// console.log(image);
 		setUploadedImage(image.img)
 
 	}
   
   useEffect((() => {
-    // const imgPreview = document.getElementById("imgPreview");
-    // const imgPost = document.getElementById("file-upload");
 
     if (id) {
       const getCate = async (id: any) => {
@@ -67,11 +53,8 @@ const UpdateProduct = () => {
 		console.log(image);
 
 		try {
-		
-				// message.error("Bạn chưa chọn ảnh")
-			
 				const data = await update(values)
-				// console.log(data);
+				console.log(data);
 				message.success("Cập nhật thành công");
        			 navigate("/admin")
 			
@@ -81,7 +64,6 @@ const UpdateProduct = () => {
 			message.error("Có lỗi xảy ra")
 		}
 	};
-	// console.log(uploadedImage);
 
 	const onFinishFailed = (errorInfo: any) => {
 		console.log('Failed:', errorInfo);
@@ -95,7 +77,6 @@ const UpdateProduct = () => {
 			</Breadcrumb>
 			<Row gutter={16}>
 				<Col span={10}>
-					<UploadImage onAdd={onHandleAdd}/>
 					{/* <UploadTest/> */}
 				</Col>
 				<Col span={14}>
@@ -109,6 +90,7 @@ const UpdateProduct = () => {
 						labelCol={{ span: 24 }}
 						form = {form}
 					>
+						<UploadImage onAdd={onHandleAdd}/>
 						<Form.Item
 							name="name"
 							labelCol={{ span: 24 }}
@@ -129,32 +111,7 @@ const UpdateProduct = () => {
 									<InputNumber style={{ width: '100%' }} size="large"  />
 								</Form.Item>
 							</Col>
-							{/* <Col span={12}>
-								<Form.Item
-									name="saleOffPrice"
-									label="Giá giảm"
-									labelCol={{ span: 24 }}
-									rules={[{ required: true, message: 'Gía sản phẩm' }]}
-								>
-									<InputNumber style={{ width: '100%' }} size="large" />
-								</Form.Item>
-							</Col> */}
-							{/* <Col span={12}>
-								<Form.Item
-									label="Phân loại"
-									name="categories"
-									rules={[{ required: true }]}
-								>
-									<Select style={{ width: '100%' }} size="large">
-										{cate?.map(item =>{
-											return (
-												<Option value={item.name}>{item.name}</Option>
-											)
-										})}
-										
-									</Select>
-								</Form.Item>
-							</Col> */}
+							
 						</Row>
 
 						<Form.Item
