@@ -1,28 +1,6 @@
 {
   "product": [
     {
-      "id": 11,
-      "name": "SP2",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "category": "Laptop",
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
-      "id": 12,
-      "name": "SP5",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "category": "Laptop",
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
       "id": 10,
       "name": "SP6",
       "price": 3000,
@@ -122,6 +100,15 @@
       "description": "1321231233eqwewqe",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658537575/anhhtus/wk7fmqujdau4g1dd9z7g.png",
       "id": 20
+    },
+    {
+      "name": "demo1234",
+      "price": 324,
+      "category": "Laptop",
+      "quantity": "324",
+      "description": "fđsdsfdsf",
+      "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658538456/anhhtus/tmieijhz5777ncvb7b9c.png",
+      "id": 21
     }
   ],
   "category": [
