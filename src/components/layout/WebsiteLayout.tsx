@@ -1,5 +1,7 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import Banner from '../Banner'
+import Footer from '../Footer'
 import Header from '../Header'
 import Sidebar from '../Sidebar'
 
@@ -7,10 +9,8 @@ const WebsiteLayout = () => {
     return (
         <div>
             <Header />
-            <section style={{ width: "1200px", margin: "10px auto", display: "flex", }}>
-                <Sidebar />
-                <Banner />
-            </section>
+            <Outlet />
+            <Footer />
         </div>
     )
 }

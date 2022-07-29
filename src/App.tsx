@@ -10,6 +10,10 @@ import AddProduct from './pages/admin/products/add'
 import UpdateProduct from './pages/admin/products/update'
 import ListCate from './pages/admin/categories/listCate'
 import CateForPro from './pages/admin/products/CateforPro'
+import { CartProvider } from 'react-use-cart'
+import Home from './pages/client/Home'
+import DetailPro from './pages/client/DetailPro'
+import CartPro from './pages/client/Cart'
 
 
 
@@ -20,7 +24,11 @@ function App() {
   return (
     <div >
       <Routes>
-        <Route path='/' element={<WebsiteLayout />}></Route>
+      <Route path='/' element={ <CartProvider><WebsiteLayout /></CartProvider>}>
+            <Route index element={<Home />} />
+            <Route path='/detail/:id' element={<DetailPro />} />
+            <Route path='/cart' element={<CartPro />} />
+          </Route>
 
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<Navigate to={"product"} />} />
