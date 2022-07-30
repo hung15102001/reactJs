@@ -7,13 +7,14 @@ import Search from 'antd/lib/transfer/search';
 import { Col, Row } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
 import MenuHeader from './MenuHeader';
+import { Link } from 'react-router-dom';
 const Header = () => {
     return (
 
         <HeaderCo style={{padding:"10px 0"}} >
             <Menu>
                 <div >
-                    <Logo src={logo} alt="" />
+                    <Link to={"/"}> <Logo src={logo} alt="" /></Link>
                 </div>
 
                 <div style={{ margin: "auto 0" }}>

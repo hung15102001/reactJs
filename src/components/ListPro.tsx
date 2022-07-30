@@ -27,7 +27,7 @@ const ListProduct = (props: Props) => {
         getProductById();
     },[])
     const addToCart = (productId:any) => {
-        console.log(productId.id);
+        console.log(productId);
        addItem(
             {
                 id: productId.id,
@@ -40,12 +40,12 @@ const ListProduct = (props: Props) => {
             }
             )
            
-            message.success("Đã thêm 1 sản phẩm vào giỏ hàng")
+            message.success("Thêm thành công")
 
     } 
     return (
         <div >
-            <Title>ĐIỆN THOẠI NỔI BẬT NHẤT</Title>
+            <Title>Sản phẩm nổi bật</Title>
             <List
                 grid={{
                     gutter: 16,
@@ -84,7 +84,7 @@ const ListProduct = (props: Props) => {
                                 <div>
                                     <p>100 đánh giá</p>
                                 </div>
-                                <Btn onClick={() => addToCart(productId)}>Add Cart</Btn>
+                                <Btn onClick={() => addToCart(item)}>Add Cart</Btn>
                             </div>
                         </div>
                     </List.Item>
