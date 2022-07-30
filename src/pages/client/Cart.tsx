@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { CloseOutlined, CloseSquareFilled, PlusSquareFilled, MinusSquareFilled } from '@ant-design/icons';
 import { Modal } from 'antd';
 import { currency } from '../../helper/helper';
+import { Link } from 'react-router-dom';
 const CartPro = () => {
   const { items, cartTotal, updateItemQuantity, removeItem } = useCart();
   console.log(items);
@@ -25,6 +26,16 @@ const CartPro = () => {
 
     }
   }
+  const removeCart = (item:any)=> {
+    Modal.confirm({
+      title:"Bạn có chắc muốn xóa sản phẩm này không ?",
+      onOk: () => {
+        updateItemQuantity(item.id, Number(item.quantity - item.quantity ))
+      },
+      
+      
+     })
+  }
   return (
     <div>
       <Cart >
@@ -38,7 +49,7 @@ const CartPro = () => {
             </div>
             <div className="col" style={{ position: "relative" }}>
               <NameProduct>{item.name}</NameProduct>
-              <p><span style={{ color: "red", fontSize: "18px" }}>{currency(item.price)} ₫</span> <span style={{ color: "gray", paddingLeft: "10px" }}>{currency(item.originalPrice)} ₫</span></p>
+              <p><span style={{ color: "red", fontSize: "18px" }}>{currency(item.price)} ₫</span> <span style={{ color: "gray", paddingLeft: "10px" }}>{currency(item.price)} ₫</span></p>
               <SoLuong>
                 <p style={{ margin: "auto 0" }}>Chọn số lượng:</p>
                 <div style={{ margin: "auto 0", display: "flex" }}>
@@ -61,7 +72,7 @@ const CartPro = () => {
                 <p>{item.description}</p>
                 {/* <p>Ưu đãi Galaxy gift lên đến 1.700.000đ (VieON VIP HBO GO, Zing MP3, Phúc Long, Galaxy Play)</p> */}
               </KhuyenMai>
-              <Delete ><CloseSquareFilled /></Delete>
+              <Delete onClick={()=>removeCart(item)}><CloseSquareFilled /></Delete>
             </div>
           </Row>
         ))}
@@ -71,10 +82,10 @@ const CartPro = () => {
             <p style={{ color: "red" }}>{currency(cartTotal)} ₫</p>
           </TongTien>
           <div>
-            <DatHang>Tiến hành đặt hàng</DatHang>
+            <DatHang><Link to={"/"}>Tiến hành đặt hàng</Link></DatHang>
           </div>
           <div>
-            <ThemSanPhamKhac>Chọn thêm sản phẩm khác</ThemSanPhamKhac>
+            <ThemSanPhamKhac><Link to={"/"}>Chọn thêm sản phẩm khác</Link></ThemSanPhamKhac>
           </div>
         </div>
 
