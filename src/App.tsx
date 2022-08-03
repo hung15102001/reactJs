@@ -14,6 +14,8 @@ import { CartProvider } from 'react-use-cart'
 import Home from './pages/client/Home'
 import DetailPro from './pages/client/DetailPro'
 import CartPro from './pages/client/Cart'
+import Signin from './pages/auth/Signin'
+import Signup from './pages/auth/Signup'
 
 
 
@@ -30,6 +32,9 @@ function App() {
             <Route path='/cart' element={<CartPro />} />
           </Route>
 
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
+          
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<Navigate to={"product"} />} />
           <Route path='product'>

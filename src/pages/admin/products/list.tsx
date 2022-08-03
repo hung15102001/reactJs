@@ -79,7 +79,6 @@ const ListProduct = () => {
             onFilter: (value, record: any) => {
                 console.log(record.categories);
                 console.log(value);
-
                 return record.category == value
             }
     

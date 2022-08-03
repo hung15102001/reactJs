@@ -23,21 +23,20 @@ function getItem(
   
   const items: MenuProps['items'] = [
     getItem('Máy tính', 'sub1', <LaptopOutlined />, [
-      getItem('Item 1', 'g1', null, [getItem('Option 1', '1'), getItem('Option 2', '2')], 'group'),
-      getItem('Item 2', 'g2', null, [getItem('Option 3', '3'), getItem('Option 4', '4')], 'group'),
+      getItem('Macbook', 'g1', null, [getItem('Macbook m1', '1'), getItem('Macbook m2', '2')], 'group'),
+      getItem('Gamming', 'g2', null, [getItem('MSI', '3'), getItem('Aser', '4')], 'group'),
     ]),
   
     getItem('Điện thoại', 'sub2', <PhoneOutlined />, [
-      getItem('Option 5', '5'),
-      getItem('Option 6', '6'),
-      getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
+      getItem('Oppo', '5'),
+      getItem('Iphone', '6'),
+      getItem('Xiaomi', 'sub3', null, [getItem('Option 7', '7'), getItem('Xiaomi node', '8')]),
     ]),
   
     getItem('Nhà thông minh', 'sub4', <HomeOutlined />, [
-      getItem('Option 9', '9'),
-      getItem('Option 10', '10'),
-      getItem('Option 11', '11'),
-      getItem('Option 12', '12'),
+      getItem('Lọc không khí', '9'),
+      getItem('Nóc thông minh', '10'),
+    
     ]),
   ];
   
