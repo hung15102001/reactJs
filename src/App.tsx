@@ -16,6 +16,7 @@ import DetailPro from './pages/client/DetailPro'
 import CartPro from './pages/client/Cart'
 import Signin from './pages/auth/Signin'
 import Signup from './pages/auth/Signup'
+import AddCate from './pages/admin/categories/addCate'
 
 
 
@@ -45,6 +46,7 @@ function App() {
           </Route>
           <Route path='category'>
             <Route index element={< ListCate/>} />
+            <Route path='add' element={<AddCate />} />
             {/* <Route path='add' element={<AddProduct />} />
             <Route path=':id/edit' element={<UpdateProduct />} /> */}
           </Route>

@@ -22,22 +22,7 @@ function getItem(
   }
   
   const items: MenuProps['items'] = [
-    getItem('Máy tính', 'sub1', <LaptopOutlined />, [
-      getItem('Macbook', 'g1', null, [getItem('Macbook m1', '1'), getItem('Macbook m2', '2')], 'group'),
-      getItem('Gamming', 'g2', null, [getItem('MSI', '3'), getItem('Aser', '4')], 'group'),
-    ]),
-  
-    getItem('Điện thoại', 'sub2', <PhoneOutlined />, [
-      getItem('Oppo', '5'),
-      getItem('Iphone', '6'),
-      getItem('Xiaomi', 'sub3', null, [getItem('Option 7', '7'), getItem('Xiaomi node', '8')]),
-    ]),
-  
-    getItem('Nhà thông minh', 'sub4', <HomeOutlined />, [
-      getItem('Lọc không khí', '9'),
-      getItem('Nóc thông minh', '10'),
-    
-    ]),
+        
   ];
   
   const Sidebar = () => {

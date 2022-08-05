@@ -1,12 +1,14 @@
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined,PlusOutlined, EyeOutlined,  EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Button, Input, Space, Table } from 'antd';
+import { Button, Input, Space, Table,  Modal } from 'antd';
 import type { ColumnsType, ColumnType } from 'antd/es/table';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
 import React, { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-import { listCate } from '../../../api/categoriApi';
+import { deleteCate, listCate } from '../../../api/categoriApi';
 import Highlighter from 'react-highlight-words';
+import { Link } from 'react-router-dom';
+import { CateType } from '../../../type/Category';
 
 type Props = {}
 interface DataType {
@@ -24,7 +26,7 @@ const ListCate = (props: Props) => {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef<InputRef>(null);
-  
+    const [dataTable,setDataTable] = useState<CateType[]>([])
     const handleSearch = (
       selectedKeys: string[],
       confirm: (param?: FilterConfirmProps) => void,
@@ -132,12 +134,57 @@ const ListCate = (props: Props) => {
         // sorter: (a, b) => a.address.length - b.address.length,
         sortDirections: ['descend', 'ascend'],
       },
+      {
+        key: "5",
+        title: "Actions",
+        render: (record) => {
+            
+          return (
+            <>
+              <EditOutlined
+                onClick={() => {
+                 
+                }}
+              />
+              <DeleteOutlined
+                onClick={() => {
+                  onDeleteStudent(record.id);
+                }}
+                style={{ color: "red", marginLeft: 12 }}
+              />
+
+            <EyeOutlined 
+              onClick={()=>{
+                
+              }}
+              style={{ marginLeft: 12 }}
+            />
+            </>
+          );
+        },
+      },
     ];
+    const onDeleteStudent = (id) => {
+      Modal.confirm({
+        title: "Are you sure, you want to delete this student record?",
+        okText: "Yes",
+        okType: "danger",
+        onOk:async () => {
+          await  deleteCate(id);
+          setDataTable(dataTable.filter(data =>  data.id !== id ))
+          window.location.reload();
+      }
+      });
+  
+    };
     const {data} = useQuery<any>(['Category'], listCate)
     console.log(data);
     
   return (
     <>
+     <Link to="/admin/category/add">
+                    <Button type="dashed" shape="circle" icon={<PlusOutlined />} />
+                </Link>
     <Table columns={columns} dataSource={data?.data} />
     </>
   )
