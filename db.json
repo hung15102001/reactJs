@@ -1,78 +1,14 @@
 {
   "product": [
     {
-      "id": 10,
-      "name": "SP6",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "category": "PC",
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
-      "id": 9,
-      "name": "SP4",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "category": "PC",
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
-      "id": 8,
-      "name": "SP7",
-      "price": 3000,
-      "description": "ok",
-      "image": "1.jpg",
-      "quantity": 100,
-      "category": "PC",
-      "created_at": "15/10/2001",
-      "updated_at": "15/10/2001"
-    },
-    {
-      "name": "demo",
-      "price": 123123,
-      "category": "Laptop",
-      "quantity": "312",
-      "description": "adasdasda",
-      "id": 13
-    },
-    {
-      "name": "undefined",
-      "price": 31,
-      "category": "Laptop",
-      "quantity": "321",
-      "description": "ewqewqe",
-      "id": 14
-    },
-    {
-      "name": "dsadasdasd",
-      "price": 312321,
-      "category": "Laptop",
-      "quantity": "ewqeqwe",
-      "description": "đâsdsad",
-      "id": 15
-    },
-    {
-      "name": "hung15102001",
-      "price": 3123213,
-      "category": "Laptop",
-      "quantity": "223",
-      "description": "qưeqwe",
-      "id": 16
-    },
-    {
       "name": "hung15102001",
       "price": 3123,
       "category": "Điện thoại",
       "quantity": "123132",
       "description": "eqeqweq",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658368220/anhhtus/ri82bbsfk5tezusobjj2.png",
-      "id": 17
+      "id": 17,
+      "value":"1"
     },
     {
       "name": "hung15102001",
@@ -81,7 +17,8 @@
       "quantity": "1323",
       "description": "ewqeqw",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658368774/anhhtus/aezehkbpvcr8mzscrrbd.png",
-      "id": 18
+      "id": 18,
+      "value":"2"
     },
     {
       "name": "demo1234",
@@ -90,7 +27,8 @@
       "quantity": "3123",
       "description": "EQWEQWQEQWEQ",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658500414/anhhtus/azvodmykcpgaa0saies9.png",
-      "id": 19
+      "id": 19,
+      "value":"3"
     },
     {
       "name": "undefined",
@@ -99,7 +37,8 @@
       "quantity": "3123",
       "description": "1321231233eqwewqe",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658537575/anhhtus/wk7fmqujdau4g1dd9z7g.png",
-      "id": 20
+      "id": 20,
+      "value":"4"
     },
     {
       "name": "demo1234",
@@ -108,7 +47,8 @@
       "quantity": "324",
       "description": "fđsdsfdsf",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658538456/anhhtus/tmieijhz5777ncvb7b9c.png",
-      "id": 21
+      "id": 21,
+      "value":"5"
     }
   ],
   "category": [
@@ -131,5 +71,18 @@
       "updated_at": "15/10/2001"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "cornyhung@gmail.com",
+      "password": "$2a$10$wi2R2etpBrEH9X3ZGwObiejyD8Qk1JatoSYI3FCnTrH2wQu3NWapm",
+      "name": "demo",
+      "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$MvNrSV7/T4zdiWmYiAvvGeSLNf9eir0EHrNeZglWtgE/0QvB.KyL.",
+      "name": "admin",
+      "id": 2
+    }
+  ]
 }

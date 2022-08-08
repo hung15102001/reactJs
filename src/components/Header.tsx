@@ -8,6 +8,7 @@ import { Col, Row } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
 import MenuHeader from './MenuHeader';
 import { Link } from 'react-router-dom';
+import SearchCli from './Search';
 const Header = () => {
     return (
 
@@ -19,8 +20,8 @@ const Header = () => {
 
                 <div style={{ margin: "auto 0" }}>
                     <div>
-                        <Input size="large" placeholder=" Search here..." style={{ borderRadius: "10px" }} prefix={<SearchOutlined/>} />
-                        {/* <Search placeholder="input search text" /> */}
+                        {/* <Input size="large" placeholder=" Search here..." style={{ borderRadius: "10px" }} prefix={<SearchOutlined/>} /> */}
+                        <SearchCli />
                     </div>
                 </div>
 

@@ -1,70 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import logo from '../../assets/images/logo.png'
 import styled from 'styled-components';
+import { useForm,SubmitHandler } from 'react-hook-form';
+import { UserType } from '../../type/User';
+import { useNavigate } from 'react-router-dom';
+import { signin, signup } from '../../api/user';
 type Props = {}
+type FormSignup = {
+  email: string;
+  name: string;
+  password: string;
+}
 const Signup = (props: Props) => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
+  const [users, setUsers] =  useState<UserType[]>([])
+  const {register, handleSubmit, formState: {errors}} = useForm<FormSignup>()
+  const navigate = useNavigate()
+  const onSubmit: SubmitHandler<FormSignup> = async (user) => {
+    console.log(user);
+    
+    const {data} = await signup(user);
+    console.log(data);
+    setUsers([...users, data])
+    navigate('/signin')
+  }
   return (
     <Container>
       {/* <div style={{ background: "#FFFFFF", width:"100%"}}> */}
-    <FormLeft>
-    <Form
-      name="normal_login"
-      className="login-form"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-    >
-      <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
-      >
-        <label htmlFor="">Email</label>
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
-      >
-        <label htmlFor="">Password</label>
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
-      >
-        <label htmlFor="">Password confirm</label>
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
-      </Form.Item>
-      <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+ 
+      <FormC onSubmit={handleSubmit(onSubmit)}>
 
-        <a className="login-form-forgot" href="">
-          Forgot password
-        </a>
-      </Form.Item>
+          <label htmlFor="">Email</label>
+          <div>
+          <InputC type="email" placeholder='Email@gmail.com' {...register('email', {required: true})}/>
+         </div>
 
-      <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button" style={{width: "100%", background:"red"}}>
-          Log in
-        </Button>
-       <p><a href="">register now!</a></p>
-      </Form.Item>
-    </Form>
-    </FormLeft>
+         
+          <label htmlFor="">Username</label>
+          <div>
+          <InputC type="text" placeholder='Ngo van A' {...register('name', {required: true})}/>
+         </div>
+
+        
+          <label htmlFor="">Password</label>
+          <div>
+          <InputC type="password"  placeholder='...............' {...register('password', {required: true})}/>
+         </div>
+
+        <div>
+          <ButtonC type="submit">Đăng ký</ButtonC>
+        </div>
+      </FormC>
+
     {/* </div> */}
     <FormRight>
     <Logo src={logo} alt="" />
@@ -99,5 +90,34 @@ const Logo = styled.img`
   width: 150px;
 height: 150px;
 border-radius:10px;
+`
+const FormC = styled.form `
+   width: 100%;
+    height: 400px;
+    margin: auto ;
+    /* background-color: #fff; */
+    /* border: 1px solid #D9D9D9; */
+    border:none;
+    border-radius: 10px;
+    gap: 30px;
+    margin-left:80px;
+`
+const InputC = styled.input `
+  width:300px;
+  height:40px;
+  border-radius:8px;
+  padding-left:8px;
+  margin-top:20px;
+  margin-bottom:20px;
+`
+
+const ButtonC = styled.button `
+  width: 300px;
+height: 40px;
+background: #FF424E;
+border-radius: 8px;
+font-weight:bold;
+color:white;
+border:none;
 `
 export default Signup
