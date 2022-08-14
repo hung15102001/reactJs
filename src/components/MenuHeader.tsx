@@ -8,6 +8,7 @@ const MenuHeader = () => {
     const navigate = useNavigate()
     const logout = () => {
       localStorage.removeItem("user");
+      navigate('/')
     }
     return (
         <div style={{ color: "white", margin:"auto 0" }}>
@@ -29,12 +30,14 @@ const MenuHeader = () => {
 
                 {a.user && (
                     <>
-                      <Col span={6}>
-                    <Row style={{ lineHeight: "1.5"}}>
-                    <Col span={8} style={{margin:"auto 0", fontSize:"30px"}}><PieChartOutlined /> </Col>
-                    <Col span={14}><Link to={"/admin"}>Xin chào {a.user.user.name} </Link></Col>
-                    </Row>
-                </Col>
+                    {a.role == 1 && (
+                        <Col span={6}>
+                        <Row style={{ lineHeight: "1.5"}}>
+                        <Col span={8} style={{margin:"auto 0", fontSize:"30px"}}><PieChartOutlined /> </Col>
+                        <Col span={14}><Link to={"/admin"}>Xin chào {a.user.user.name} </Link></Col>
+                         </Row>
+                        </Col>
+                    )}
                       <Col span={6}>
                     <Row style={{ lineHeight: "1.5"}}>
                       <Col span={14}><Link to={"/"} onClick={()=> logout()}>Đăng xuất </Link></Col>

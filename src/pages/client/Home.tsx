@@ -1,6 +1,8 @@
 import React from 'react'
 import Accessory from '../../components/AcceStore'
+import Article from '../../components/Article'
 import Banner from '../../components/Banner'
+import Linkien from '../../components/Linkien'
 import ListProduct from '../../components/ListPro'
 import Sidebar from '../../components/Sidebar'
 
@@ -23,9 +25,12 @@ const Home = (props: Props) => {
     <section style={{ width: "80%", margin: "30px auto" }}>
         <Accessory />
     </section>
-    {/* <section style={{ width: "80%", margin: "30px auto" }}>
-        <ComputerAccessory />
-    </section> */}
+    <section style={{ width: "80%", margin: "30px auto" }}>
+        <Linkien />
+    </section>
+    <section style={{ width: "80%", margin: "30px auto" }}>
+        <Article />
+    </section>
     </div>
   )
 }

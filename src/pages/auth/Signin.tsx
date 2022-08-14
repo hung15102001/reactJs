@@ -13,6 +13,7 @@ type Props = {}
 type FormL = {
   name:string 
   email: string
+  role:number
   password: string 
 }
 const Signup = (props: Props) => {

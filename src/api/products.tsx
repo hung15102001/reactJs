@@ -22,8 +22,8 @@ export const view = (_id:string)=>{
     return instance.get(url)
 }
 export const update = (product:ProductType) => {
-    console.log(product._id);
-    const url = `/product/${product._id}`;
+    console.log(product.id);
+    const url = `/product/${product.id}`;
     return instance.put(url, product)
 }
 export const cateForPro = (cateId:any) => {

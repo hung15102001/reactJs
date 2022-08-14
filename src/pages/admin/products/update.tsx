@@ -53,13 +53,12 @@ const UpdateProduct = () => {
 		console.log(image);
 
 		try {
-				const data = await update(values)
+				const {data} = await update(values)
+				
+				
 				console.log(data);
 				message.success("Cập nhật thành công");
        			 navigate("/admin")
-			
-
-			// navigate(-1)
 		} catch (err) {
 			message.error("Có lỗi xảy ra")
 		}
@@ -72,7 +71,7 @@ const UpdateProduct = () => {
 		<>
 			<Breadcrumb>
 				<Typography.Title level={2} style={{ margin: 0 }}>
-					Thêm mới
+					Cập nhật sản phẩm
 				</Typography.Title>
 			</Breadcrumb>
 			<Row gutter={16}>

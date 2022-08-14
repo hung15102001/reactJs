@@ -8,7 +8,7 @@
       "description": "eqeqweq",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658368220/anhhtus/ri82bbsfk5tezusobjj2.png",
       "id": 17,
-      "value":"1"
+      "value": "1"
     },
     {
       "name": "hung15102001",
@@ -18,7 +18,7 @@
       "description": "ewqeqw",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658368774/anhhtus/aezehkbpvcr8mzscrrbd.png",
       "id": 18,
-      "value":"2"
+      "value": "2"
     },
     {
       "name": "demo1234",
@@ -28,7 +28,7 @@
       "description": "EQWEQWQEQWEQ",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658500414/anhhtus/azvodmykcpgaa0saies9.png",
       "id": 19,
-      "value":"3"
+      "value": "3"
     },
     {
       "name": "undefined",
@@ -38,7 +38,7 @@
       "description": "1321231233eqwewqe",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658537575/anhhtus/wk7fmqujdau4g1dd9z7g.png",
       "id": 20,
-      "value":"4"
+      "value": "4"
     },
     {
       "name": "demo1234",
@@ -48,25 +48,28 @@
       "description": "fđsdsfdsf",
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658538456/anhhtus/tmieijhz5777ncvb7b9c.png",
       "id": 21,
-      "value":"5"
+      "value": "5"
     }
   ],
   "category": [
     {
       "id": 1,
       "name": "Điện thoại",
+      "key": "1",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
     {
       "id": 2,
       "name": "Laptop",
+      "key": "2",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     },
     {
       "id": 3,
       "name": "PC",
+      "key": "3",
       "created_at": "15/10/2001",
       "updated_at": "15/10/2001"
     }
@@ -76,13 +79,22 @@
       "email": "cornyhung@gmail.com",
       "password": "$2a$10$wi2R2etpBrEH9X3ZGwObiejyD8Qk1JatoSYI3FCnTrH2wQu3NWapm",
       "name": "demo",
+      "role":2,
       "id": 1
     },
     {
       "email": "admin@gmail.com",
       "password": "$2a$10$MvNrSV7/T4zdiWmYiAvvGeSLNf9eir0EHrNeZglWtgE/0QvB.KyL.",
       "name": "admin",
+      "role":1,
       "id": 2
+    },
+    {
+      "email": "syhungngo1015@gmail.com",
+      "password": "$2a$10$Dtw3NDootmtvMMD6nMQMN.azw/IPGiidFe3uY4X2VnvAyssovljpy",
+      "name": "demo",
+      "role":2,
+      "id": 3
     }
   ]
 }

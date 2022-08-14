@@ -4,38 +4,46 @@ import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { CateType } from '../type/Category';
 import { listProduct } from '../api/products';
+import { ProductType } from '../type/Products';
+import { listCate } from '../api/categoriApi';
 
 type MenuItem = Required<MenuProps>['items'][number];
-
-type MenuItemType = {
-  title? :string,
-  icon: React.ReactNode,
-  label?: string
+function getItem(
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+  type?: 'group',
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  } as MenuItem;
 }
-  
-  const items: MenuItemType[] = [
-    {
-      title: "Menu 1",
-      icon: <AppstoreOutlined/>
-    },
-    {
-      title: "Menu 2",
-      label: "Menu 2",
-      icon: <AppstoreOutlined/>
-    }
-  ];
-  
   const Sidebar = () => {
     const [cate, setCate] = useState<CateType[]>([])
     useEffect(()=>{
         const getCate = async () => {
-        const {data} = await listProduct();
+        const {data} = await listCate();
         console.log(data);
         
             setCate(data)
         }
         getCate()
     }, [])
+    const items: MenuProps['items'] = cate?.map((item:any, index:any )=>
+     
+        
+    getItem(item.name, item.name  , <AppstoreOutlined />, 
+       
+       
+    )
+  
+
+);
     const onClick: MenuProps['onClick'] = e => {
       console.log('click ', e);
     };
