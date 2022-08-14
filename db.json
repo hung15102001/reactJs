@@ -49,6 +49,16 @@
       "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658538456/anhhtus/tmieijhz5777ncvb7b9c.png",
       "id": 21,
       "value": "5"
+    },
+    {
+      "name": "sp1",
+      "price": 324,
+      "category": "Laptop",
+      "quantity": "324",
+      "description": "fđsdsfdsf",
+      "img": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1658538456/anhhtus/tmieijhz5777ncvb7b9c.png",
+      "id": 22,
+      "value": "5"
     }
   ],
   "category": [
@@ -79,22 +89,29 @@
       "email": "cornyhung@gmail.com",
       "password": "$2a$10$wi2R2etpBrEH9X3ZGwObiejyD8Qk1JatoSYI3FCnTrH2wQu3NWapm",
       "name": "demo",
-      "role":2,
+      "role": 2,
       "id": 1
     },
     {
       "email": "admin@gmail.com",
       "password": "$2a$10$MvNrSV7/T4zdiWmYiAvvGeSLNf9eir0EHrNeZglWtgE/0QvB.KyL.",
       "name": "admin",
-      "role":1,
+      "role": 1,
       "id": 2
     },
     {
       "email": "syhungngo1015@gmail.com",
       "password": "$2a$10$Dtw3NDootmtvMMD6nMQMN.azw/IPGiidFe3uY4X2VnvAyssovljpy",
       "name": "demo",
-      "role":2,
+      "role": 2,
       "id": 3
+    },
+    {
+      "email": "admin123@gmail.com",
+      "password": "$2a$10$oB6m2mPhYCgDA674Di/6UuHb86i0aZuBYmFlngpaPOX3/4qcYfhZO",
+      "name": "hung15102001",
+      "role": "2",
+      "id": 5
     }
   ]
 }

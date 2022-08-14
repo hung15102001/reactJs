@@ -75,6 +75,9 @@ const Container = styled.div `
     margin: auto;
     margin-top: 90px;
     display: flex;
+    background-image: url('https://i.pinimg.com/originals/a7/12/3a/a7123a124ba35c74c421e1678e2bb677.gif');
+    background-repeat: no-repeat;
+background-size: 100% 752px;
 `
 const FormLeft = styled.div `
   width: 100%;

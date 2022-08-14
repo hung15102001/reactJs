@@ -5,12 +5,13 @@ import logo from '../../assets/images/logo.png'
 import styled from 'styled-components';
 import { useForm,SubmitHandler } from 'react-hook-form';
 import { UserType } from '../../type/User';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signin, signup } from '../../api/user';
 type Props = {}
 type FormSignup = {
   email: string;
   name: string;
+  role:number
   password: string;
 }
 const Signup = (props: Props) => {
@@ -22,8 +23,8 @@ const Signup = (props: Props) => {
   const navigate = useNavigate()
   const onSubmit: SubmitHandler<FormSignup> = async (user) => {
     console.log(user);
-    
-    const {data} = await signup(user);
+    const role = 2;
+    const {data} = await signup(user );
     console.log(data);
     setUsers([...users, data])
     navigate('/signin')
@@ -44,8 +45,10 @@ const Signup = (props: Props) => {
           <div>
           <InputC type="text" placeholder='Ngo van A' {...register('name', {required: true})}/>
          </div>
+          <div style={{display:'none'}}>
+          <InputC type="text" placeholder='Ngo van A' value={'2'} {...register('role', {required: true})}/>
+         </div> 
 
-        
           <label htmlFor="">Password</label>
           <div>
           <InputC type="password"  placeholder='...............' {...register('password', {required: true})}/>
@@ -53,6 +56,7 @@ const Signup = (props: Props) => {
 
         <div>
           <ButtonC type="submit">Đăng ký</ButtonC>
+          <ButtonC style={{marginLeft:'5px'}} type="button"><Link style={{color:'white'}} to={'/signin'}>Đăng nhập</Link></ButtonC>
         </div>
       </FormC>
 
@@ -72,6 +76,10 @@ const Container = styled.div `
     margin: auto;
     margin-top: 90px;
     display: flex;
+    background-image: url('https://i.pinimg.com/originals/f0/07/66/f007669223b43a7c17dae49cf45871ce.gif');
+
+background-repeat: no-repeat;
+background-size: 100% 752px;
 `
 const FormLeft = styled.div `
   width: 100%;
@@ -103,7 +111,7 @@ const FormC = styled.form `
     margin-left:80px;
 `
 const InputC = styled.input `
-  width:300px;
+  width:400px;
   height:40px;
   border-radius:8px;
   padding-left:8px;
@@ -112,7 +120,7 @@ const InputC = styled.input `
 `
 
 const ButtonC = styled.button `
-  width: 300px;
+  width: 49%;
 height: 40px;
 background: #FF424E;
 border-radius: 8px;

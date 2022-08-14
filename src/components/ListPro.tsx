@@ -63,7 +63,7 @@ const ListProduct = (props: Props) => {
                         
                         <div>
                             <div style={{textAlign:"center"}}>
-                                <Link to={`/detail/${item.id}`} ><img  src={item.img} alt="" width={140} /></Link>
+                                <Link to={`/detail/${item.id}`} ><img  src={item.img} alt="" width={120} height={100} /></Link>
                             </div>
                             <Link to={`/detail/${item.id}`} className="name" style={{marginTop:"10px", color:"black"}}>{item.name}</Link>
                             <div style={{display:"flex", justifyContent:"space-between"}}>
@@ -84,8 +84,8 @@ const ListProduct = (props: Props) => {
                                 <div>
                                     <p>100 đánh giá</p>
                                 </div>
-                                <Btn onClick={() => addToCart(item)}>Add Cart</Btn>
                             </div>
+                            <Btn onClick={() => addToCart(item)}>Add Cart</Btn>
                         </div>
                     </List.Item>
                 )}
@@ -108,6 +108,7 @@ const Desc = styled.div`
 const Btn = styled.button`
     background-color: red;
     transition:all .2s linear;
+    width:100%;
     color: #fff;
     padding: 5px 5px;
     border: 0;
