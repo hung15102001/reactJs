@@ -3,7 +3,8 @@ import { CateType } from '../../../type/Category';
 import { Typography, Col, Row, Button, Checkbox, Form, Input, InputNumber, Select, message } from 'antd'
 import TextArea from 'antd/lib/input/TextArea';
 import styled from "styled-components";
-import { addCate } from '../../../api/categoriApi';
+import { addCate } from '../../../api/category';
+
 type Props = {}
 
 const AddCate = (props: Props) => {

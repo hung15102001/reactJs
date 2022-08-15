@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCatebyId, listCate } from "../../api/categoriApi";
-
+import { getCatebyId, listAllDetail, listCate } from "../../api/category";
 
 
 export const getListCategory:any = createAsyncThunk(

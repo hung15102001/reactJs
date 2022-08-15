@@ -16,7 +16,7 @@ type FormL = {
   role:number
   password: string 
 }
-const Signup = (props: Props) => {
+const Signin = (props: Props) => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -127,4 +127,4 @@ color:white;
 border:none;
 margin-bottom:20px;
 `
-export default Signup
+export default Signin

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { signin, signup } from "../../../api/user";
 
+
 export const signUp:any = createAsyncThunk(
     "user/signup",
     async (user:any, { rejectWithValue } ) => {

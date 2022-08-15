@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getCatebyId, listAllDetail, listCate } from "../../api/category";
 import { listProduct } from "../../api/products";
 
 

@@ -23,7 +23,7 @@ const Signup = (props: Props) => {
   const navigate = useNavigate()
   const onSubmit: SubmitHandler<FormSignup> = async (user) => {
     console.log(user);
-    const role = 2;
+    const role = 0;
     const {data} = await signup(user );
     console.log(data);
     setUsers([...users, data])

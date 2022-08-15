@@ -5,7 +5,7 @@ import foo2 from '../assets/images/footer/foo2.png';
 import foo3 from '../assets/images/footer/foo3.png';
 import foo4 from '../assets/images/footer/foo4.png';
 import foo5 from '../assets/images/footer/foo5.png';
-// import foo6 from '../assets/images/footer/foo6.png';
+import foo6 from '../assets/images/footer/foo6.png';
 const Footer = () => {
     return (
         <div>
@@ -17,11 +17,11 @@ const Footer = () => {
                     <p style={{ color: "Red" }}>Gặp trực tiếp cửa hàng gần nhất (Zalo hoặc gọi điện)</p>
                     <p style={{ fontSize: "24px" }}>Phương thức thanh toán</p>
                     <Nav>
-                        {/* <a href=""><img src={foo1} alt="" /></a>
+                        <a href=""><img src={foo1} alt="" /></a>
                         <a href=""><img src={foo2} alt="" /></a>
                         <a href=""><img src={foo3} alt="" /></a>
                         <a href=""><img src={foo4} alt="" /></a>
-                        <a href=""><img src={foo5} alt="" /></a> */}
+                        <a href=""><img src={foo5} alt="" /></a>
 
                     </Nav>
                 </div>
@@ -32,7 +32,7 @@ const Footer = () => {
                     <div style={{ fontSize: "24px" }}>Đối tác dịch vụ bảo hành</div>
                     <p>Điện Thoại - Máy tính</p>
                     <div>Trung tâm bảo hành uỷ quyền Apple</div>
-                    {/* <div><a href=""><img src={foo6} alt="" /></a></div> */}
+                    <div><a href=""><img src={foo6} alt="" /></a></div>
                 </div>
                 <div>
                     <div>Mua hàng và thanh toán Online</div>

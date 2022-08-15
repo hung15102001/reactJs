@@ -5,8 +5,9 @@ import styled from 'styled-components';
 // import store from '../redux/store';
 import { CloseOutlined, CloseSquareFilled, PlusSquareFilled, MinusSquareFilled } from '@ant-design/icons';
 import { Modal } from 'antd';
-import { currency } from '../../helper/helper';
+
 import { Link } from 'react-router-dom';
+import { currency } from '../helper/helper';
 const CartPro = () => {
   const { items, cartTotal, updateItemQuantity, removeItem } = useCart();
   console.log(items);
@@ -49,15 +50,10 @@ const CartPro = () => {
             </div>
             <div className="col" style={{ position: "relative" }}>
               <NameProduct>{item.name}</NameProduct>
-              <p><span style={{ color: "red", fontSize: "18px" }}>{currency(item.price)} ₫</span> <span style={{ color: "gray", paddingLeft: "10px" }}>{currency(item.price)} ₫</span></p>
+              <p><span style={{ color: "red", fontSize: "18px" }}>{(item.price)} ₫</span> <span style={{ color: "gray", paddingLeft: "10px" }}>{(item.price)} ₫</span></p>
               <SoLuong>
                 <p style={{ margin: "auto 0" }}>Chọn số lượng:</p>
                 <div style={{ margin: "auto 0", display: "flex" }}>
-
-                  <div style={{ margin: "auto" }}>
-                    <PlusSquareFilled onClick={() => updateItemQuantity(item.id, Number(item.quantity) + 1)} style={{ color: "red", fontSize: "26px",cursor:"pointer" }} />
-                  </div>
-
                   <div>
                     <input type="text" value={item.quantity} style={{ width: "40px", textAlign: "center", borderRadius: "5px", margin: "0 5px" }} />
                   </div>
@@ -79,7 +75,7 @@ const CartPro = () => {
         <div>
           <TongTien>
             <p>Tổng tiền tạm tính:</p>
-            <p style={{ color: "red" }}>{currency(cartTotal)} ₫</p>
+            <p style={{ color: "red" }}>{(cartTotal)} ₫</p>
           </TongTien>
           <div>
             <DatHang><Link style={{color:'white'}} to={"/"}>Tiến hành đặt hàng</Link></DatHang>

@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Input } from 'antd';
 import { MailOutlined, AppstoreOutlined, SearchOutlined } from '@ant-design/icons';
-import logo from '../../assets/images/logo.png'
-import Search from 'antd/lib/transfer/search';
+import logo from '../../assets/images/anhhtus-logo 2.png'
 import { Col, Row } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
 // import MenuHeader from './MenuHeader';
@@ -24,7 +23,7 @@ const HeaderAdmin = () => {
                     </div>
                 </div>
                 <div style={{margin:"auto 0"}}>
-                    <p style={{float:"right", color:"white"}}> Xin chao heeeee</p>
+                    <p style={{float:"right", color:"white"}}> Xin chao long</p>
                 </div>
                {/* <MenuHeader/> */}
 

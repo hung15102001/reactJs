@@ -47,7 +47,7 @@ const EditProduct = () => {
 			const getCate = async (id: any) => {
 				const { data } = await view(id);
 				// console.log(data.image);
-				setImgPreivew(data.image);
+				setImgPreivew(data.img);
 				form.setFieldsValue(data)
 				// onreset(payload)
 
@@ -153,26 +153,26 @@ const EditProduct = () => {
 								>
 									<Select style={{ width: '100%' }} size="large" onChange={(e) => handlerChangeCate(e)}>
 										{category.map((item: any, index: any) => (
-											<Option value={item.id} key={index + 1}>{item.name}</Option>
+											<Option value={item.name} key={index + 1}>{item.name}</Option>
 										))}
 									</Select>
 								</Form.Item>
 
 							</Col>
 
-							<Col span={12}>
-								<Form.Item
-									label="Dòng sản phẩm"
-									name="detailCate"
-									rules={[{ required: true }]}
-								>
-									<Select style={{ width: '100%' }} size="large">
-										{listCateDetail.map((item: any, index: any) => (
-											<Option value={item.id} key={index + 1}>{item.name}</Option>
-										))}
-									</Select>
-								</Form.Item>
-							</Col>
+								{/* <Col span={12}>
+									<Form.Item
+										label="Loại sản phẩm"
+										name="category"
+										rules={[{ required: true }]}
+									>
+										<Select style={{ width: '100%' }} size="large">
+											{listCateDetail.map((item: any, index: any) => (
+												<Option value={item.id} key={index + 1}>{item.name}</Option>
+											))}
+										</Select>
+									</Form.Item>
+								</Col> */}
 
 						</Row>
 

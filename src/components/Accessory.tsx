@@ -1,7 +1,7 @@
 import { List } from 'antd'
 import React from 'react'
 import styled from 'styled-components';
-// import imageProduct from '../assets/images/phukien/pk3.png';
+import imageProduct from '../assets/images/phukien/pk3.png';
 type Props = {}
 
 const Accessory = (props: Props) => {
@@ -64,9 +64,7 @@ const Accessory = (props: Props) => {
                 
                 <div>
                     <div style={{textAlign:"center"}}>
-                        <PhuKien href="" >
-                            {/* <img  alt="" width={100} style={{width:"100%"}} /> */}
-                             </PhuKien>
+                        <PhuKien href="" ><img  src={imageProduct} alt="" width={100} style={{width:"100%"}} /> </PhuKien>
                         <NamePhuKien className='title'>Nổi bật</NamePhuKien>
                     </div>
                 </div>

@@ -1,99 +1,222 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from "styled-components";
-import { Typography, Button, Table, Space, Modal } from 'antd';
-
+import { Typography, Button, Table, Space, Popconfirm, Modal, message, Input } from 'antd';
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Link, useNavigate } from 'react-router-dom'
 import { SearchOutlined, PlusOutlined,EyeOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { listProduct, remove } from '../../../api/products';
+
+import { listProduct, removeProduct } from '../../../api/products';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import { ProductType } from '../../../type/Products';
-import { Link, useNavigate } from 'react-router-dom';
-import { CateType } from '../../../type/Category';
-import { listCate } from '../../../api/categoriApi';
+import { listCate } from '../../../api/category';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDetailCate } from '../../../features/Slide/categoryPhone/catePhone';
+import type { InputRef } from 'antd';
+import type { FilterConfirmProps } from 'antd/es/table/interface';
+import { getAllProduct } from '../../../features/Slide/product/product';
 // import { useQuery } from 'react-query'
 const { Paragraph } = Typography
 
 
 interface DataType {
-    id:number;
     name: string;
-    price: number;
+    saleOffPrice: number;
+    feature: string;
     description: string;
-    img: string;
-    quantity:number;
-    cateID:number;
-    created_at:string;
-    updated_at:string
-
 }
 
-const ListProduct = () => {
-    const [dataTable,setDataTable] = useState<ProductType[]>([])
-    const [cate, setCate] = useState<CateType[]>([])
+type ProductManagerProps = {
 
-    useEffect(()=>{
-      const getCate = async () => {
-        const {data} = await listCate()
-        console.log(data);
-        
-        setCate(data)
-      }
-      getCate()
-    },[])
+    // onRemoveProduct: (id:number) => void
+}
+
+
+const ListProduct = () => {
+
+    // const [dataTable, setDataTable] = useState([])
+    const productData = useSelector((item: any) => item.product.value)
+    const category = useSelector((item: any) => item.categoryPhone.value)
+    const [confirmLoading, setConfirmLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false)
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
+    const searchInput = useRef<InputRef>(null);
+
+    const handleSearch = (
+        selectedKeys: string[],
+        confirm: (param?: FilterConfirmProps) => void,
+        dataIndex: any,
+    ) => {
+        confirm();
+        setSearchText(selectedKeys[0]);
+        setSearchedColumn(dataIndex);
+    };
+
+    const handleReset = (clearFilters: () => void) => {
+        clearFilters();
+        setSearchText('');
+    };
+
+    const getColumnSearchProps = (dataIndex: any) => ({
+
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }: any) => (
+            <div style={{ padding: 8 }}>
+
+                <Input
+                    ref={searchInput}
+                    placeholder={`Tìm Kiếm ${dataIndex}`}
+                    value={selectedKeys[0]}
+                    onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
+                    style={{ marginBottom: 8, display: 'block' }}
+                />
+
+                <Space>
+                    <Button
+                        type="primary"
+                        onClick={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
+                        icon={<SearchOutlined />}
+                        size="small"
+                        style={{ width: 90 }}
+                    >
+                        Tìm
+                    </Button>
+                    <Button
+                        onClick={() => clearFilters && handleReset(clearFilters)}
+                        size="small"
+
+                        style={{ width: 90 }}
+                    >
+                        Xóa
+                    </Button>
+                    <Button
+                        type="link"
+                        size="small"
+                        onClick={() => {
+                            confirm({ closeDropdown: false });
+                            setSearchText((selectedKeys as string[])[0]);
+                            setSearchedColumn(dataIndex);
+                        }}
+                    >
+                        Lọc
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: (filtered: boolean) => (
+            <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+        ),
+        onFilter: (value: any, record: any) => {
+            return record[dataIndex].toString().toLowerCase().includes((value as string).toLowerCase())
+        }
+
+    });
+    useEffect(() => {
+        // const listcategory = async () => {
+        //     const { data } = await listCate();
+        //     console.log(data);
+
+        //     setCategory(data)
+        // }
+        // listcategory();
+        dispatch(getAllDetailCate())
+        dispatch(getAllProduct())
+    }, [])
+
+    // const { isLoading, data, error } = useQuery<any>(['Product'], listProduct)
+    console.log(productData);
+    
+    const dataTable = productData.map((item: any, index: number) => {
+        return {
+            key: index + 1,
+            id: item.id,
+            name:item.name,
+            originalPrice: item.originalPrice,
+            saleOffPrice: item.saleOffPrice,
+            categories: item.categories,
+            detailCate: item.detailCate,
+            feature: item.feature,
+            description: item.description,
+            image: item.image,
+
+        }
+    })
+
+    const onRemoveProduct = (id: any) => {
+        setConfirmLoading(true);
+        message.loading({ content: 'Loading...' });
+
+        setTimeout(() => {
+
+            removeProduct(id);
+            setConfirmLoading(false);
+
+            message.success({ content: 'Xóa Thành Công!', duration: 2 });
+
+            navigate("/admin")
+        }, 1000)
+    }
+
+    const handAn = (id: any) => {
+
+    }
+
     const columns: ColumnsType<DataType> = [
         {
-            title: 'Name',
+            title: 'STT',
+            dataIndex: 'key',
+            key: "key",
+            sorter: (a: any, b: any) => a.key - b.key,
+            // sorter: (record1, record2) => { return record1.key > record2.key },
+            sortDirections: ['descend'],
+        },
+        {
+            title: 'Tên sản phẩm',
             dataIndex: 'name',
             key: 'name',
-            render: number => <div>{number}</div>,
+            ...getColumnSearchProps('name'),
+            render: text => <a>{text}</a>,
         },
         {
-            title: 'Price',
-            dataIndex: 'price',
-            key: 'price',
-            render: text => <a>{text} vnd</a>,
+            title: 'Hình ảnh',
+            dataIndex: 'image',
+            key: 'image',
+            render: text => <img src={text} alt="" width={100} />,
+
+
         },
         {
-            title: 'Description',
-            dataIndex: 'description',
-            key: 'description',
+            title: 'Đặc điểm',
+            dataIndex: 'feature',
+            key: 'feature',
+            render: text => <p>{text}</p>,
+
+
         },
         {
-            title: 'Quantity',
-            dataIndex: 'quantity',
-            key: 'quantity',    
-        },
-        {
-            title: 'Image',
-            dataIndex: 'img',     
-            key: 'img',
-            render: text => <img src={text} alt="" width={150} />,
-            
-        },
-        {
-            title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
-            filters: cate.map((item: any) => { return { text: item.name, value: item.name } }),
+            title: 'Loại hàng',
+            dataIndex: 'categories',
+            key: 'categories',
+            filters: category.map((item: any) => { return { text: item.name, value: item.id } }),
             onFilter: (value, record: any) => {
-                console.log(record.categories);
-                console.log(value);
-                return record.category == value
+                // console.log(record.detailCate);
+                // console.log(value);
+
+                return record.detailCate == value
             }
-    
         },
         {
-            title: 'Created at',
-            dataIndex: 'created_at',
-            key: 'created_at',
-            render: text => <a>{text}</a>,
+            title: 'Giá khuyến mãi',
+            dataIndex: 'saleOffPrice',
+            key: 'saleOffPrice',
         },
         {
-            title: 'Updated at',
-            dataIndex: 'updated_at',
-            key: 'updated_at',
-            render: text => <a>{text}</a>,
+            title: 'Mô tả',
+            dataIndex: 'description',
+            key: 'description', 
+            render: text => <div><div dangerouslySetInnerHTML={{__html:`${text}`}}></div></div>
         },
         {
             key: "5",
@@ -109,14 +232,14 @@ const ListProduct = () => {
                   />
                   <DeleteOutlined
                     onClick={() => {
-                      onDeleteStudent(record.id);
+                        onRemoveProduct(record.id);
                     }}
                     style={{ color: "red", marginLeft: 12 }}
                   />
 
                 <EyeOutlined 
                   onClick={()=>{
-                    onHidden(record.id);
+                  
                   }}
                   style={{ marginLeft: 12 }}
                 />
@@ -126,49 +249,23 @@ const ListProduct = () => {
           },
     ];
 
-    const onDeleteStudent = (id) => {
-        Modal.confirm({
-          title: "Are you sure, you want to delete this student record?",
-          okText: "Yes",
-          okType: "danger",
-          onOk:async () => {
-            await  remove(id);
-            setDataTable(dataTable.filter(data =>  data.id !== id ))
-            window.location.reload();
-        }
-        });
-    
-      };
-const onHidden = (id) =>{
-
-}
-    const navigate = useNavigate()
-      const onEditStudent = (record) => { 
-        navigate(`/admin/product/${record.id}/edit`)
-      };
-     
-
-    const queryClient = new QueryClient();
-
-    const {isLoading, data, error} = useQuery<any>(['Product'], listProduct)
-    console.log(data);
-    
+   
+    const onEditStudent = (record:any) => { 
+      navigate(`/admin/product/edit/${record.id}`)
+    };
     return (
         <>
-        
+
             <Breadcrumb>
                 <Typography.Title level={2} style={{ margin: 0 }}>
                     Điện thoại
                 </Typography.Title>
-                <div>
-                  <button><Link to={'/admin/product/category/3'}>demo</Link></button>
-                </div>
                 <Link to="/admin/product/add">
                     <Button type="dashed" shape="circle" icon={<PlusOutlined />} />
                 </Link>
             </Breadcrumb>
-            <Table loading={isLoading} columns={columns} dataSource={data?.data} />
-           
+            <Table  columns={columns} dataSource={dataTable} />
+
         </>
     )
 }

@@ -5,10 +5,10 @@ import type { ColumnsType, ColumnType } from 'antd/es/table';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
 import React, { useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-import { deleteCate, listCate } from '../../../api/categoriApi';
 import Highlighter from 'react-highlight-words';
 import { Link } from 'react-router-dom';
 import { CateType } from '../../../type/Category';
+import { listCate, removeCate } from '../../../api/category';
 
 type Props = {}
 interface DataType {
@@ -164,13 +164,13 @@ const ListCate = (props: Props) => {
         },
       },
     ];
-    const onDeleteStudent = (id) => {
+    const onDeleteStudent = (id:any) => {
       Modal.confirm({
         title: "Are you sure, you want to delete this student record?",
         okText: "Yes",
         okType: "danger",
         onOk:async () => {
-          await  deleteCate(id);
+          await  removeCate(id);
           setDataTable(dataTable.filter(data =>  data.id !== id ))
           window.location.reload();
       }
@@ -182,7 +182,7 @@ const ListCate = (props: Props) => {
     
   return (
     <>
-     <Link to="/admin/category/add">
+     <Link to="/admin/categories/add">
                     <Button type="dashed" shape="circle" icon={<PlusOutlined />} />
                 </Link>
     <Table columns={columns} dataSource={data?.data} />

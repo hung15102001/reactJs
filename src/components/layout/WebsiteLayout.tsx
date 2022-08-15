@@ -1,16 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Banner from '../Banner'
 import Footer from '../Footer'
 import Header from '../Header'
-import Sidebar from '../Sidebar'
 
 const WebsiteLayout = () => {
+    
     return (
-        <div>
+        <div style={{position:"relative"}}>
             <Header />
-            <Outlet />
-            <Footer />
+            <Outlet/>
+                <Footer/>
         </div>
     )
 }

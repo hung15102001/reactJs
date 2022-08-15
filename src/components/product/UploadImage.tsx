@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Typography, Button, Input } from 'antd'
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { upload } from "../../api/uploadApi";
-
+import axios from "axios";
+import { upload } from "../../api/uploadImage";
+// import { upload } from "../../api/products";
 
 const { TextArea } = Input
-type onAddProps = {
-    onAdd:(image:any)=> void
-    img: string
+type  AddImageProps  = {
+    onAdd: (image: any) => void,
+        img : string
+   
 }
-const UploadImage = ({onAdd}:onAddProps) => {
+
+const UploadImage = ({onAdd, img}:AddImageProps) => {
     const [base64Image, setBase64Image] = React.useState('')
     const [uploadedImage, setUploadedImage] = React.useState('')
 
     const handleChangeImage = (event: any) => {
         const file = event.target.files[0]
-        console.log(file);
-        
         // previewFile(file)
         const reader = new FileReader()
         reader.readAsDataURL(file)
-        console.log(reader);
-        
         reader.onloadend = () => {
             uploadImage(reader.result)
         }
@@ -33,32 +32,33 @@ const UploadImage = ({onAdd}:onAddProps) => {
             const { data } = await upload(base64Image)
             // const data = res.data
             console.log(data)
-            onAdd({image:data.url})
+            onAdd({img:data.url})
             setUploadedImage(data.url)
         } catch (err) {
             console.log(err)
         }
     }
+    
 
     return (
         <Container>
             <UploadWrapper>
                 <UploadIcon>
                     <PlusCircleOutlined style={{fontSize: 30}}/>
-                    <input
-                        type="file"
+                    <input 
+                        type="file" style={{display:"none"}}
                         accept="image/png, image/jpg, image/jpeg, image/gif"
-                        name="img"    onChange={handleChangeImage} />
+                        name="image" onChange={handleChangeImage} />
                 </UploadIcon>
                 {/* <Button type="dashed" shape="circle" icon={<PlusCircleOutlined />} />
                 <Typography.Title level={5}>Thêm ảnh</Typography.Title> */}
 
-                {uploadedImage && (
-                    <ImagePreview style={{}} src={uploadedImage} alt="Image" />
-                )}
+                {uploadedImage || img ?
+                    <ImagePreview width={150} src={uploadedImage || img} alt="Image"  id="imgPreview" />
+                : ""}
             </UploadWrapper>
-            {/* <Label>Mô tả ngắn</Label>
-            <TextArea rows={4} placeholder="Mô tả ngắn" /> */}
+            <Label>Mô tả ngắn</Label>
+            <TextArea rows={4} placeholder="Mô tả ngắn" />
         </Container>
     )
 }
@@ -89,7 +89,7 @@ const UploadIcon = styled.label`
 `
 
 const ImagePreview = styled.img`
-    width: 100%;
+    max-width: 100%;
 `
 
 export default UploadImage;

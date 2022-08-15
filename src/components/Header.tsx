@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Input } from 'antd';
 import { MailOutlined, AppstoreOutlined, SearchOutlined } from '@ant-design/icons';
@@ -7,21 +7,25 @@ import Search from 'antd/lib/transfer/search';
 import { Col, Row } from 'antd'
 import { UserOutlined } from '@ant-design/icons';
 import MenuHeader from './MenuHeader';
+import { useCart } from 'react-use-cart';
 import { Link } from 'react-router-dom';
-import SearchCli from './Search';
+import PostFilterFormSearch from './SearchBar';
+import SearchBar from './SearchBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProduct } from '../features/Slide/product/product';
 const Header = () => {
+   
     return (
 
         <HeaderCo style={{padding:"10px 0"}} >
             <Menu>
                 <div >
-                    <Link to={"/"}> <Logo src={logo} alt="" /></Link>
+                    <Link to={'/'}><Logo src={logo} alt="" /></Link>
                 </div>
 
                 <div style={{ margin: "auto 0" }}>
                     <div>
-                        {/* <Input size="large" placeholder=" Search here..." style={{ borderRadius: "10px" }} prefix={<SearchOutlined/>} /> */}
-                        <SearchCli />
+                        <SearchBar  ></SearchBar>
                     </div>
                 </div>
 
@@ -48,7 +52,7 @@ const HeaderCo = styled.div`
     padding: 5px 10px
 `
 const Menu = styled.div`
-    width:1200px;
+    width:80%;
     display:grid ;
     grid-template-columns: 2fr 4fr 5fr;
     margin:auto;
