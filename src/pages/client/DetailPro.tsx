@@ -1,12 +1,13 @@
 import { message } from 'antd'
 import React, { useEffect, useState } from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import styled from 'styled-components'
 import { view } from '../../api/products'
 import { addCart } from '../../features/Slide/cart/Cart'
 import { currency } from '../../helper/helper'
+import { isAuthenticate } from '../../untils/localstore'
 
 
 
@@ -29,24 +30,31 @@ const DetailProduct = () => {
         }
         getProductById(id);
     },[])
+const navigate = useNavigate();
+    const addToCart = (productId:any) => {
+        console.log(productId);
+        const check = isAuthenticate();
+        console.log(check);
 
-    const addToCart = (product:any) => {
-        console.log(product);
-       const add =  addItem(
-            {
-                id: productId.id,
-                name: productId.name, 
-                price: productId.price,
-                image: productId.image, 
-                originalPrice: productId.price,
-                description: productId.description,
-                categories: productId.category
-            }
-            )
-           
-            message.success("Đã thêm 1 sản phẩm vào giỏ hàng")
+        if(!check){
+            navigate('/signin')
+            return false;
+        }else{
+            addItem(
+                {
+                    id: productId.id,
+                    name: productId.name, 
+                    price: productId.price,
+                    img: productId.img, 
+                    description: productId.description,
+                    categories: productId.category
+                }
+                )
+               
+                message.success("Thêm thành công")
+        }
 
-    } 
+    }
     return (
         <div>
             <div style={{ borderBottom: "1px solid #ddd", boxShadow: "0px 0px 5px gray " }}>

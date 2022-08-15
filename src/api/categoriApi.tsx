@@ -20,3 +20,21 @@ export const deleteCate = (id:any) => {
     const url = `/category/${id}`
     return instance.delete(url)
 }
+export const getCatebyId:any = (id:any) => {
+    const url = `/detailCate/${id}`;
+    return instance.get(url);
+}   
+
+
+export const listAllDetail:any = () => {
+    const url = `/detailCate`;
+    return instance.get(url);
+}
+
+// điện thoại
+
+
+export const listCateDetailById:any = (id:number) => {
+    const url = `/detailCate?categories=${id}`;
+    return instance.get(url);
+}

@@ -44,7 +44,7 @@ const CartPro = () => {
         {items?.map((item, index) => (
           <Row className="row" key={index + 1}>
             <div className="col" style={{ margin: "auto" }}>
-              <a href=""><Image src={item.image} alt="" /></a>
+              <a href=""><Image src={item.img} alt="" /></a>
 
             </div>
             <div className="col" style={{ position: "relative" }}>
@@ -82,10 +82,10 @@ const CartPro = () => {
             <p style={{ color: "red" }}>{currency(cartTotal)} ₫</p>
           </TongTien>
           <div>
-            <DatHang><Link to={"/"}>Tiến hành đặt hàng</Link></DatHang>
+            <DatHang><Link style={{color:'white'}} to={"/"}>Tiến hành đặt hàng</Link></DatHang>
           </div>
           <div>
-            <ThemSanPhamKhac><Link to={"/"}>Chọn thêm sản phẩm khác</Link></ThemSanPhamKhac>
+            <ThemSanPhamKhac><Link style={{color:'red'}} to={"/"}>Chọn thêm sản phẩm khác</Link></ThemSanPhamKhac>
           </div>
         </div>
 

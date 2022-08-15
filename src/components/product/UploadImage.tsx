@@ -8,6 +8,7 @@ import { upload } from "../../api/uploadApi";
 const { TextArea } = Input
 type onAddProps = {
     onAdd:(image:any)=> void
+    img: string
 }
 const UploadImage = ({onAdd}:onAddProps) => {
     const [base64Image, setBase64Image] = React.useState('')

@@ -5,9 +5,10 @@ import { message } from 'antd'
 import {StarOutlined, StarTwoTone} from '@ant-design/icons';
 import { useQuery } from 'react-query';
 import { listProduct } from '../api/products';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { currency } from '../helper/helper';
 import { useCart } from 'react-use-cart';
+import { isAuthenticate } from '../untils/localstore';
 type Props = {}
 
 const ListProduct = (props: Props) => {
@@ -26,21 +27,29 @@ const ListProduct = (props: Props) => {
         }
         getProductById();
     },[])
+    const navigate = useNavigate();
     const addToCart = (productId:any) => {
         console.log(productId);
-       addItem(
-            {
-                id: productId.id,
-                name: productId.name, 
-                price: productId.price,
-                image: productId.image, 
-                originalPrice: productId.price,
-                description: productId.description,
-                categories: productId.category
-            }
-            )
-           
-            message.success("Thêm thành công")
+        const check = isAuthenticate();
+        console.log(check);
+
+        if(!check){
+            navigate('/signin')
+            return false;
+        }else{
+            addItem(
+                {
+                    id: productId.id,
+                    name: productId.name, 
+                    price: productId.price,
+                    img: productId.img, 
+                    description: productId.description,
+                    categories: productId.category
+                }
+                )
+               
+                message.success("Thêm thành công")
+        }
 
     } 
     return (

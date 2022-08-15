@@ -35,3 +35,12 @@ export const remove = (id: number) => {
     const url = `/product/${id}`;
     return instance.delete(url)
 }
+export const getProductIdCate:any = (id:number) => {
+    const url = `/products?categories=${id}`;
+    return instance.get(url);
+}
+
+export const listProductIdCateDetail:any = (id:number) => {
+    const url = `/products?detailCate=${id}`;
+    return instance.get(url);
+}

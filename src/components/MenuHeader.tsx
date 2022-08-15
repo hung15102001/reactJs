@@ -33,14 +33,22 @@ const MenuHeader = () => {
                     {a.user.user.role == 1 && (
                         <Col span={6}>
                         <Row style={{ lineHeight: "1.5"}}>
-                        <Col span={8} style={{margin:"auto 0", fontSize:"30px"}}><PieChartOutlined /> </Col>
-                        <Col span={14}><Link style={{color:"white", fontWeight:'bold' }} to={"/admin"}>Xin chào {a.user.user.name} </Link></Col>
+                        <Col span={8} style={{margin:"auto 0", fontSize:"30px"}}><PieChartOutlined /></Col>
+                        <Col span={14}><Link style={{color:"white", fontWeight:'bold', lineHeight:'40px' }} to={"/admin"}>Dashboard </Link></Col>
                          </Row>
                         </Col>
                     )}
+                    {/* {a.user.user.name} */}
+                    <Col span={6}>
+                        <Row style={{ lineHeight: ""}}>
+                        <Col span={12}>Xin chào {a.user.user.name} </Col>
+                        <Col span={12}><Link style={{color:"white", fontWeight:'bold' }} to={"/"} onClick={()=> logout()}>Đăng xuất </Link></Col>
+                         </Row>
+                    </Col>
+
                       <Col span={6}>
                     <Row style={{ lineHeight: "1.5"}}>
-                      <Col span={14}><Link style={{color:"white", fontWeight:'bold' }} to={"/"} onClick={()=> logout()}>Đăng xuất </Link></Col>
+                     
                 
                     </Row>
                 </Col>
@@ -49,10 +57,10 @@ const MenuHeader = () => {
 
                 {!a && (
                     <>
-                     <Col span={6}>
+                     <Col span={8}>
                     <Row style={{ lineHeight: "1.5"}}>
-                      <Col span={14}><Link style={{color:"white", fontWeight:'bold' }} to={"/signin"}>Đăng nhập </Link></Col>
-                    <Col span={10}><Link style={{color:"white", fontWeight:'bold' }} to={"/signup"}>Đăng ký</Link></Col>
+                      <Col span={12}><Link style={{color:"white", fontWeight:'bold' }} to={"/signin"}>Đăng nhập </Link></Col>
+                    <Col span={12}><Link style={{color:"white", fontWeight:'bold' }} to={"/signup"}>Đăng ký</Link></Col>
                     </Row>
                 </Col>
                     </>
