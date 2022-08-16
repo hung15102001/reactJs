@@ -66,7 +66,7 @@ const AdminLayout = () => {
     </HeaderCustom>
     <Layout>
       <Sider
-        collapsible={true}
+        // collapsible={true}
         width={200}
         className="site-layout-background">
         <Menu
@@ -89,7 +89,7 @@ const AdminLayout = () => {
 }
 
 const HeaderCustom = styled(Header)`
-    background-color: #00B0D7;
+    background-color: gray;
     height: 64px;
     display: flex;
     align-items: center;

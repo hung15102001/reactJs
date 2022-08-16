@@ -17,7 +17,6 @@ const AddCate = (props: Props) => {
 		
 		setImage(image.image)
 	}
-//   const navigate = useNavigate()
 	const onFinish = async (values: any) => {
 		console.log('Success:', values);
 		try {

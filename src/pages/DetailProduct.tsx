@@ -9,11 +9,8 @@ import iconCart from '../assets/images/icon.png'
 import { addCart } from '../features/Slide/cart/Cart';
 import { currency, findString } from '../helper/helper';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-
-// import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -57,14 +54,7 @@ const DetailProduct = () => {
             }
         )
 
-        message.success("Đã thêm 1 sản phẩm vào giỏ hàng")
-        // dispatch(addCart(product))
-
-        // dispatch({
-        //     type: "cart/addCart",
-        //     payload: product
-        //   })
-
+        message.success("Thêm 1 sản phẩm vào giỏ hàng")
     }
     return (
         <div>
@@ -78,8 +68,8 @@ const DetailProduct = () => {
                         <a href=""><img src={productId.image} alt="" width={350} /></a>
                         <div style={{ position: "relative" }}>
                             <div>
-                                <p ><span style={{ color: "red", fontSize: "24px", fontWeight: "600" }}>{currency(Number(productId?.saleOffPrice))} đ </span><span style={{ color: "gray", paddingLeft: "10px" }}>{currency(Number(productId?.originalPrice))} đ</span></p>
-                                <p> Mô tả ngắn: {productId?.description}</p>
+                                <p ><span style={{ color: "red", fontSize: "24px", fontWeight: "600" }}>{currency(Number(productId?.originalPrice))} đ </span><span style={{ color: "gray", paddingLeft: "10px" }}>{currency(Number(productId?.originalPrice))} đ</span></p>
+                                <p > Mô tả ngắn: {productId?.description}</p>
                             </div>
 
                             <div style={{ position: "absolute", bottom: "0", display: "flex", gap: 20 }}>
@@ -97,13 +87,12 @@ const DetailProduct = () => {
             <section style={{ width: "80%", margin: " auto" }}>
                 <h2>Sản phẩm cùng loại</h2>
                 <Swiper
-                    // install Swiper modules
+                   
                     modules={[Navigation, Pagination, Scrollbar]}
                     spaceBetween={30}
                     slidesPerView={5}
                     navigation
                     pagination={{ clickable: true }}
-                    // scrollbar={{ draggable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
@@ -116,7 +105,7 @@ const DetailProduct = () => {
                                 </div>
                                 <Link to={'/detail/'+ item.id} style={{ color: "black" }}><p>{item.name}</p></Link>
                                 <div style={{ display: "flex", }}>
-                                    <p style={{ color: "red", fontWeight: "600" }}>{currency(item.saleOffPrice)} ₫ </p><span style={{ color: "gray", fontSize: "12px", marginLeft: "10px" }}>{currency(item.originalPrice)} ₫</span>
+                                    <p style={{ color: "red", fontWeight: "600" }}>{currency(item.originalPrice)} ₫ </p><span style={{ color: "gray", fontSize: "12px", marginLeft: "10px" }}>{currency(item.originalPrice)} ₫</span>
                                 </div>
                             </Col>
                         </SwiperSlide>

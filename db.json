@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "image": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1659855165/anhhtus/wt8dctcomx99z7muchk2.png",
-      "name": "Xiaomi Redmi Note 12",
+      "image": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1660609693/anhhtus/nhupx0canpax66p1zewt.png",
+      "name": "Xiaomi Redmi Note 1234",
       "originalPrice": 67800000,
+      "categories": 1,
       "feature": "Có cái rì âu",
       "description": "<p>abc âdsaasasdsadadsadasdasdasdads</p>",
-      "categories": 1,
       "id": 15
     },
     {
@@ -94,6 +94,15 @@
       "description": "<p>dsadasdadadsa</p>",
       "image": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1660587789/anhhtus/pvpo8ihj8mricyfppuij.jpg",
       "id": 16
+    },
+    {
+      "image": "http://res.cloudinary.com/dv3vzmogk/image/upload/v1660614484/anhhtus/rierrl5voakh2utsqmn8.png",
+      "name": "demo1234",
+      "originalPrice": 15990000,
+      "categories": 1,
+      "feature": "Màn Hình 4K+ Trung Thực trải nghiệm hình ảnh sống động, sắc nét\n HUAWEI Smart Bar điều khiển cảm ứng trực quan, dễ dàng tương tác\n",
+      "description": "<p>Mô tả sản phẩm</p><p>Màn hình Huawei Mateview – Màn hình đồ họa chuyên nghiệp</p><p>Công việc đồ họa đòi hỏi các yêu cầu cao về màn hình, đặc biệt là màu sắc. Màn hình Huawei</p><p>Mateview được Huawei thiết kế dành riêng vời nhiều công nghệ màn hình và màu sắc, thích hợp với</p><p>công việc đồ họa chuyên nghiệp.</p><p>Màn hình sang trọng, tỉ lệ 3:2 độc đáo</p><p>Huawei Mateview sở hữu một thiết kế tối giản với phần khung và chân đế được hoàn thiện từ hợp</p><p>kim nhôm cao cấp cùng khung viền siêu mỏng mang lại không gian hiển thị lớn hơn. Màn hình đồ</p><p>họa này với tỉ lệ hiển thị trên thân máy lên tới 94%.</p><p>Xem thêm: Màn hình Huawei Mateview GT thiết kế sáng tạo cùng độ hiển thị vượt trội</p>",
+      "id": 17
     }
   ],
   "categories": [
@@ -114,7 +123,8 @@
     },
     {
       "name": "demo",
-      "id": 4
+      "id": 4,
+      "key": "4"
     }
   ],
   "detailCate": [
@@ -174,6 +184,13 @@
       "name": "admin",
       "role": "1",
       "id": 1
+    },
+    {
+      "email": "demo@gmail.com",
+      "password": "$2a$10$LeoDhDdAUKg4eZZDDiSJg.tOtGZTqJ21IFT4IF8xW6Do5D4boa/3u",
+      "name": "demo",
+      "role": "2",
+      "id": 2
     }
   ]
 }

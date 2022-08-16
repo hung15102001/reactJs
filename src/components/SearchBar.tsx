@@ -46,11 +46,7 @@ const SearchBar = () => {
     return (
         <div className="search">
             <div className="searchInputs">
-                {/* <input
-                    type="text"
-                    value={wordEntered}
-                    onChange={handleFilter}
-                /> */}
+        
                 <Input
                     size="large"
                     placeholder=" Search here..."
@@ -63,11 +59,6 @@ const SearchBar = () => {
                         <CloseOutlined id="clearBtn" onClick={clearInput} />
                     )}
                 />
-
-                {/* <div className="searchIcon">
-                    {}
-                </div> */}
-
             </div>
             {filteredData.length != 0 && (
                 <DataResult onClick={clearInput}>
@@ -83,7 +74,7 @@ const SearchBar = () => {
                                     <div className="title">
                                         <p>{value.name} </p>
                                         <div style={{ display: "flex", justifyContent: "flex-start", gap: "10px" }}>
-                                            <p style={{ color: "red" }}>{currency(value.saleOffPrice)} ₫</p>
+                                            <p style={{ color: "red" }}>{currency(value.originalPrice)} ₫</p>
                                             <p style={{ color: "gray", fontSize: "13px" }}>{currency(value.originalPrice)} ₫</p>
                                         </div>
                                     </div>

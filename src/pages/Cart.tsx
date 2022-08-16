@@ -29,7 +29,7 @@ const CartPro = () => {
   }
   const removeCart = (item:any)=> {
     Modal.confirm({
-      title:"Bạn có chắc muốn xóa sản phẩm này không ?",
+      title:"Bạn có chắc muốn xóa không ?",
       onOk: () => {
         updateItemQuantity(item.id, Number(item.quantity - item.quantity ))
       },
@@ -40,12 +40,12 @@ const CartPro = () => {
   return (
     <div>
       <Cart >
-        <h2>Giỏ hàng</h2>
+        <h2>Giỏ hàng của bạn</h2>
 
         {items?.map((item, index) => (
           <Row className="row" key={index + 1}>
             <div className="col" style={{ margin: "auto" }}>
-              <a href=""><Image src={item.img} alt="" /></a>
+              <a href=""><Image src={item.image} alt="" /></a>
 
             </div>
             <div className="col" style={{ position: "relative" }}>
@@ -54,6 +54,10 @@ const CartPro = () => {
               <SoLuong>
                 <p style={{ margin: "auto 0" }}>Chọn số lượng:</p>
                 <div style={{ margin: "auto 0", display: "flex" }}>
+                <div style={{ margin: "auto" }}>
+                    <PlusSquareFilled onClick={() => updateItemQuantity(item.id, Number(item.quantity) + 1)} style={{ color: "red", fontSize: "26px",cursor:"pointer" }} />
+                  </div>
+
                   <div>
                     <input type="text" value={item.quantity} style={{ width: "40px", textAlign: "center", borderRadius: "5px", margin: "0 5px" }} />
                   </div>
@@ -63,11 +67,7 @@ const CartPro = () => {
                   </div>
                 </div>
               </SoLuong>
-              <KhuyenMai>
-                <p>- Chương trình khuyến mại: </p>
-                <p>{item.description}</p>
-                {/* <p>Ưu đãi Galaxy gift lên đến 1.700.000đ (VieON VIP HBO GO, Zing MP3, Phúc Long, Galaxy Play)</p> */}
-              </KhuyenMai>
+             
               <Delete onClick={()=>removeCart(item)}><CloseSquareFilled /></Delete>
             </div>
           </Row>

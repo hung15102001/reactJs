@@ -27,7 +27,6 @@ interface DataType {
 
 type ProductManagerProps = {
 
-    // onRemoveProduct: (id:number) => void
 }
 
 
@@ -114,18 +113,10 @@ const ListProduct = () => {
 
     });
     useEffect(() => {
-        // const listcategory = async () => {
-        //     const { data } = await listCate();
-        //     console.log(data);
-
-        //     setCategory(data)
-        // }
-        // listcategory();
+    
         dispatch(getAllDetailCate())
         dispatch(getAllProduct())
     }, [])
-
-    // const { isLoading, data, error } = useQuery<any>(['Product'], listProduct)
     console.log(productData);
     
     const dataTable = productData.map((item: any, index: number) => {
@@ -196,7 +187,7 @@ const ListProduct = () => {
 
         },
         {
-            title: 'Loại hàng',
+            title: 'Danh mục',
             dataIndex: 'categories',
             key: 'categories',
             filters: category.map((item: any) => { return { text: item.name, value: item.id } }),
@@ -208,7 +199,7 @@ const ListProduct = () => {
             }
         },
         {
-            title: 'Giá khuyến mãi',
+            title: 'Giá',
             dataIndex: 'saleOffPrice',
             key: 'saleOffPrice',
         },
