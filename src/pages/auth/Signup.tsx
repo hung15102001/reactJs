@@ -34,7 +34,7 @@ const Signup = (props: Props) => {
       {/* <div style={{ background: "#FFFFFF", width:"100%"}}> */}
  
       <FormC onSubmit={handleSubmit(onSubmit)}>
-
+      <h1 style={{fontWeight:"bold",  textAlign:"center"}}>Đăng ký</h1>
           <label htmlFor="">Email</label>
           <div>
           <InputC type="email" placeholder='Email@gmail.com' {...register('email', {required: true})}/>

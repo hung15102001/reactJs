@@ -22,6 +22,8 @@ const SearchBar = () => {
     const handleFilter = (event: any) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
+        // console.log("HUNG",setWordEntered(searchWord));
+        
         
         const newFilter = listProductSearch2.filter((item: any) => {
             // console.log(item.name);
@@ -62,7 +64,7 @@ const SearchBar = () => {
             </div>
             {filteredData.length != 0 && (
                 <DataResult onClick={clearInput}>
-                    {filteredData.slice(0, 15).map((value: any, key) => {
+                    {filteredData.slice(0, 5).map((value: any, key) => {
                         return (
                             <Link to={'../detail/'+ value.id} key={key + 1} style={{ color: "black" }} className="dataItem" >
                                 <Product >

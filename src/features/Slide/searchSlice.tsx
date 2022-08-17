@@ -5,9 +5,9 @@ import { listProduct } from "../../api/products";
 
 export const getAllProductSeach:any = createAsyncThunk(
     "searchProduct/getAllProductSearch",
-    async (user:any ) => {
+    async (search:any ) => {
         try {   
-            const {data} = await listProduct(user);
+            const {data} = await listProduct(search);
             return data
         } catch (error:any) {
             return error

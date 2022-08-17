@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCatebyId, listAllDetail, listCate } from "../../api/category";
+import { getCatebyId, listCate } from "../../api/category";
 
 
 export const getListCategory:any = createAsyncThunk(
     "category/getListCategory",
-    async (user:any ) => {
+    async (demo:any ) => {
         try {   
-            const {data} = await listCate(user);
+            const {data} = await listCate(demo);
+            console.log("demo", data);
             return data
         } catch (error:any) {
             return error

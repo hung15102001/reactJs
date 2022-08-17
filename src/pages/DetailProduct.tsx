@@ -69,10 +69,10 @@ const DetailProduct = () => {
                         <div style={{ position: "relative" }}>
                             <div>
                                 <p ><span style={{ color: "red", fontSize: "24px", fontWeight: "600" }}>{currency(Number(productId?.originalPrice))} đ </span><span style={{ color: "gray", paddingLeft: "10px" }}>{currency(Number(productId?.originalPrice))} đ</span></p>
-                                <p > Mô tả ngắn: {productId?.description}</p>
+                                <p > Mô tả ngắn:  <div dangerouslySetInnerHTML={{__html:`${productId.description}`}}></div></p>
                             </div>
 
-                            <div style={{ position: "absolute", bottom: "0", display: "flex", gap: 20 }}>
+                            <div style={{ position: "absolute", bottom: "-60", display: "flex", gap: 20 }}>
                                 <Btn onClick={() => addToCart(productId)}>Mua ngay</Btn>
                                 <div style={{ display: "flex", gap: "10px" }}>
                                     <Cart onClick={() => addToCart(productId)}><ShoppingCartOutlined /></Cart>

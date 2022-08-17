@@ -38,7 +38,7 @@ const Signin = (props: Props) => {
     <Container>
       {/* <div style={{ background: "#FFFFFF", width:"100%"}}> */}
       <FormC onSubmit={handleSubmit(onLogin)}>
-
+      <h1 style={{fontWeight:"bold",  marginLeft:"80px"}}>Đăng nhập</h1>
           <label htmlFor="">Email</label>
           <div>
           <InputC type="email" placeholder='Email@gmail.com' {...register('email', {required: true})}/>
