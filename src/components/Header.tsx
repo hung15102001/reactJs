@@ -52,11 +52,11 @@ const HeaderCo = styled.div`
     padding: 5px 10px
 `
 const Menu = styled.div`
-    width:80%;
+    width:90%;
     display:grid ;
     grid-template-columns: 2fr 4fr 5fr;
     margin:auto;
-    gap:30px;
+    gap:20px;
 `
 
 

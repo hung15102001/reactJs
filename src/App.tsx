@@ -25,7 +25,7 @@ import UserAdmin from './pages/admin/user/User'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
 
   const newLocal = "auto"

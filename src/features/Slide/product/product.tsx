@@ -5,9 +5,9 @@ import { getProductIdCate, listProduct, listProductIdCateDetail } from "../../..
 
 export const getAllProduct:any = createAsyncThunk(
     "product/getAllProduct",
-    async (user:any ) => {
+    async (pro:any ) => {
         try {   
-            const {data} = await listProduct(user);
+            const {data} = await listProduct(pro);
             return data
         } catch (error:any) {
             return error
@@ -17,9 +17,9 @@ export const getAllProduct:any = createAsyncThunk(
 
 export const getListProduct:any = createAsyncThunk(
     "product/getListProduct",
-    async (user:any ) => {
+    async (pro:any ) => {
         try {   
-            const {data} = await listCateDetailById(user);
+            const {data} = await listCateDetailById(pro);
             return data
         } catch (error:any) {
             return error

@@ -78,12 +78,6 @@ const categoryPhoneSlice = createSlice({
         builder.addCase(getListCateDetailById.fulfilled, (state:any, action:any) => {
             state.value = action.payload
         }),
-        builder.addCase(getListCatePhuKien.fulfilled, (state:any, action:any) => {
-            state.value = action.payload
-        }),
-        builder.addCase(getListCateLinhKien.fulfilled, (state:any, action:any) => {
-            state.value = action.payload
-        }),
         builder.addCase(getAllDetailCate.fulfilled, (state:any, action:any) => {
             state.value = action.payload
         })
